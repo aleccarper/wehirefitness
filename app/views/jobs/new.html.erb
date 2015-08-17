@@ -1,3 +1,47 @@
 <h1>new</h1>
 
-<%= link_to 'Review Job', jobs_review_path %>
+<%= form_for(@job, :url => { :action => :review }) do |f| %>
+  <div class="field">
+    <%= f.label :job_title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
+  </div>
+
+   <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.select :state, options_for_select(us_states), :name=>'state', :id=>'state' %>
+  </div>
+
+   <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :how_to_apply %><br>
+    <%= f.text_field :how_to_apply %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_description %><br>
+    <%= f.text_field :company_description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
