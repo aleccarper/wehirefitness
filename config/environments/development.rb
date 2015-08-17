@@ -1,4 +1,4 @@
-Rails.application.configure do
+Wehirefitness::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -8,6 +8,8 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+
+  config.secret_key_base = 'c48078ae8331b3cc7f0b5a689655ae64fc9bb290880679674b9c223db0fc6f087229ab2dfb0ec88e6ff1f1539cd883adf5e1e527fac7febd4352887920d941f4'
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
