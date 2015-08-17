@@ -1,0 +1,10 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  username: rails
+  password: rails
+  database: wehirefitness
+  pool: 5
+  timeout: 5000
+
+
