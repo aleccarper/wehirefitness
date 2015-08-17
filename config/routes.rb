@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+
+  get '/jobs/new', to: 'jobs#new'
+
+  post '/jobs/review', to: 'jobs#review'
+  get '/jobs/review', to: 'jobs#review'
+
+  post '/jobs/purchase', to: 'jobs#purchase'
+  get '/jobs/purchase', to: 'jobs#purchase'
+
+
+  get '/jobs/:id', to: 'jobs#show', as: 'job'
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
