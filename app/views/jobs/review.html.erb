@@ -1,3 +1,29 @@
 <h1>review</h1>
 
+<h5>Title</h5>
+<%= @job.title %>
+
+<h5>Category</h5>
+<%= @job.category %>
+
+<h5>City</h5>
+<%= @job.city %>
+
+<h5>State</h5>
+<%= @job.state %>
+
+<h5>Zip</h5>
+<%= @job.zip %>
+
+<h5>Description</h5>
+<%= @job.description %>
+
+<h5>How To Apply</h5>
+<%= @job.how_to_apply %>
+
+<h5>Company Description</h5>
+<%= @job.company_description %>
+
+
+<h4>If that all looks good, proceed on to purchasing to complete your job posting</h4>
 <%= link_to 'Purchase Listing', jobs_purchase_path %>
