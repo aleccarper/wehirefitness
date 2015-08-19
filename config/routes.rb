@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-
   get '/jobs/new', to: 'jobs#new'
 
   post '/jobs/review', to: 'jobs#review'
@@ -11,7 +10,6 @@ Rails.application.routes.draw do
   get '/jobs/purchase', to: 'jobs#purchase'
 
   post '/jobs/complete_purchase', to: 'jobs#complete_purchase'
-
 
   get '/jobs/:id', to: 'jobs#show', as: 'job'
 

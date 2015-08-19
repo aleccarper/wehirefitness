@@ -1,1 +1,8 @@
-<h1>hi</h1>
+<%= @job.to_yaml %>
+
+<br />
+
+<%= mail_to "info@theyogaclasses.com", 
+						"Report this job listing", 
+						subject: "Reporting job \##{@job.id}",
+						body: '' %>

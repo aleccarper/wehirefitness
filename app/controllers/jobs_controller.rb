@@ -1,7 +1,11 @@
 class JobsController < ApplicationController
 
+	def show
+		@job = Job.find(params[:id])
+	end
+
 	def new
-		@job = Job.new
+		@job = Job.new(session[:job])
 	end
 
 	def review
@@ -18,7 +22,6 @@ class JobsController < ApplicationController
 	end
 
 	def purchase
-
 
 	end
 

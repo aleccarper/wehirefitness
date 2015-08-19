@@ -5,9 +5,8 @@
 
 <h3>Jobs:</h3>
 <% @jobs.each do | job | %>
-	<p><%= job.to_yaml %></p>
+	<p><%= link_to 'Check out this jerb', job %> <br /> <%= job.to_yaml %></p>
 <% end %>
-
 <%= link_to 'Create Job Posting', jobs_new_path %>
 
 
