@@ -1,8 +1,13 @@
-<%= @job.to_yaml %>
+<% if @job.present? %>
+	<%= @job.to_yaml %>
 
-<br />
+	<br />
 
-<%= mail_to "info@theyogaclasses.com", 
-						"Report this job listing", 
-						subject: "Reporting job \##{@job.id}",
-						body: '' %>
+	<%= mail_to "info@theyogaclasses.com", 
+							"Report this job listing", 
+							subject: "Reporting job \##{@job.id}",
+							body: '' %>
+
+<% else %>
+	<h1>Job not found</h1>
+<% end %>

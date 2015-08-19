@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 
 	def show
-		@job = Job.find(params[:id])
+		@job = Job.find_by_id(params[:id])
 	end
 
 	def new
