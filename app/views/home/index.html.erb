@@ -1,12 +1,13 @@
-<h1>oh hi</h1>
 
-<h4><%= flash[:notice] %></h4>
-
-
-<h3>Jobs:</h3>
-<% @jobs.each do | job | %>
-	<p><%= link_to 'Check out this jerb', job %> <br /> <%= job.to_yaml %></p>
+<% @jobs.each do | cat_name, jobs | %>
+	<h3><%= cat_name %></h3>
+	<% if !jobs.present? %>
+		<h5>No jobs posted</h5>
+	<% else %>
+		<% jobs.each do |job| %>
+			<p><%= link_to 'Check out this jerb', job %> <br /> <%= job.to_yaml %></p>
+		<% end %>
+	<% end %>
 <% end %>
-<%= link_to 'Create Job Posting', jobs_new_path %>
 
 

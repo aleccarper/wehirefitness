@@ -15,10 +15,10 @@ class JobsController < ApplicationController
 			end
 
 			@job = Job.new(session[:job])
+			@category = Category.find_by_id(@job.category)
 		else
 			redirect_to jobs_new_path
 		end
-
 	end
 
 	def purchase

@@ -1,5 +1,8 @@
 module ApplicationHelper
 
+	def category_selects
+		Category.all.select(:id, :name).map {|c| [c.name, c.id]}
+	end
 
 	def us_states
 	    [

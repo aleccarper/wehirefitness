@@ -10,7 +10,23 @@
 </head>
 <body>
 
-<%= yield %>
+
+	<header id='site-header'>
+		<h1><%= link_to 'We Hire Fitness', root_path%></h1>
+		
+		<%= link_to 'Post a job', jobs_new_path %>
+		<br />
+		<h4><%= flash[:notice] %></h4>
+		<br/>
+	</header>
+
+	<div id='site-content'>
+		<%= yield %>
+	</div>
+
+	<footer id='site-footer'>
+		
+	</footer>
 
 </body>
 </html>
