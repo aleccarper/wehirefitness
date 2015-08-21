@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   post '/jobs/complete_purchase', to: 'jobs#complete_purchase'
 
+  get '/jobs/thank_you', to: 'jobs#thank_you'
+
   get '/jobs/:id', to: 'jobs#show', as: 'job'
 
 end

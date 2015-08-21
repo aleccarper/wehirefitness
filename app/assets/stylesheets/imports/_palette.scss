@@ -1,0 +1,82 @@
+$white: #fff;
+$base-color: #009FDA;
+
+$border-radius: 15px;
+
+$color-background-main: $base-color;
+$color-text-main: $white;
+$color-header-main: $white;
+
+
+
+/*
+	LAYOUT
+*/
+$color-section-background-main: darken($base-color, 15%);
+$color-section-border-main: darken($base-color, 10%);
+
+
+
+/*
+	HEADER
+*/
+$color-header-background-main: darken($base-color, 15%);
+$color-header-text-main: $white;
+$color-header-text-hover: $white;
+
+
+
+/*
+	BUTTONS
+*/
+$color-button-background-main: $white;
+$color-button-text-main: darken($base-color, 10%);
+$color-button-border-main: $white;
+
+$color-button-background-hover: darken($base-color, 10%);
+$color-button-text-hover: $white;
+$color-button-border-hover: $white;
+
+
+
+/*
+	FORM
+*/
+$color-form-text-main: $white;
+$color-form-background-main: darken($base-color, 20%);
+$color-form-border-main: darken($base-color, 20%);
+$color-form-background-hover: darken($base-color, 22%);
+$color-form-border-hover: darken($base-color, 22%);
+
+// inputs
+$color-input-text-main: darken($base-color, 25%);
+
+
+
+/*
+	LINKS
+*/
+$color-link-text-main: $white;
+$color-link-background: transparent;
+$color-link-text-hover: darken($base-color, 10%);
+$color-link-background-hover: $white;
+
+
+/*
+	FOOTER
+*/
+$color-footer-background-main: darken($base-color, 15%);
+$color-footer-text-main: $white;
+
+
+
+/*
+	LOCATION
+*/
+$color-location-background-main: darken($base-color, 20%);
+$color-location-background-hover: darken($base-color, 23%);
+$color-location-border-main: darken($base-color, 20%);
+$color-location-border-hover: darken($base-color, 20%);
+
+
+

@@ -8,25 +8,21 @@
 
   <script type='text/javascript' src='https://js.stripe.com/v2/'></script>
 </head>
-<body>
+<body class="<%= "#{controller.controller_name} #{@body_class}".strip %>">
+  <div id='site-wrap'>
+		<header id='site-header'>
+			<h1><%= link_to 'We Hire Fitness', root_path%></h1>
+		</header>
 
-
-	<header id='site-header'>
-		<h1><%= link_to 'We Hire Fitness', root_path%></h1>
+		<h4 class='notice'><%= flash[:notice] %></h4>
 		
-		<%= link_to 'Post a job', jobs_new_path %>
-		<br />
-		<h4><%= flash[:notice] %></h4>
-		<br/>
-	</header>
+		<div id='site-content'>
+			<%= yield %>
+		</div>
 
-	<div id='site-content'>
-		<%= yield %>
+		<footer id='site-footer'>
+			<%= render 'layouts/footer' %>
+		</footer>
 	</div>
-
-	<footer id='site-footer'>
-		
-	</footer>
-
 </body>
 </html>

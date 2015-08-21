@@ -37,6 +37,7 @@ gem 'pg'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development, :test do
+  gem 'letter_opener'
 	gem "better_errors"
 	gem "byebug"
 end

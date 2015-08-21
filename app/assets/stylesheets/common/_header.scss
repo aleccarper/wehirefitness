@@ -1,0 +1,127 @@
+#site-header {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-bottom-right-radius: 15px;
+  display: block;
+  height: auto;
+  margin: 0;
+  padding: 8px;
+  position: absolute;
+  width: auto;
+  z-index: 10;
+
+	a {
+		font-family: 'Lato', sans-serif;
+		text-transform: uppercase;
+		font-weight: bold;
+		margin: 0;
+		padding: 0;
+		border-radius: 15px;
+	}
+
+	ul, li {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.masthead, .site-links {
+    display: table-cell;
+    vertical-align: middle;
+	}
+
+	.masthead {
+    float: left;
+    font-size: 30px;
+    height: auto;
+    line-height: 1em;
+    padding: 5px;
+    text-align: left;
+	}
+
+	.sandwich-menu {
+    border: 3px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+    width: 40px;
+    display: none;
+
+		.line {
+			position: absolute;
+			height: 3px;
+			width: 60%;
+			left: 20%;
+			border-radius: 5px;
+			background-color: $white;
+
+			&:nth-child(1) {
+				top: 7px;
+			}
+
+			&:nth-child(2) {
+				top: 16px;
+			}
+
+			&:nth-child(3) {
+				top: 25px;
+			}
+		}
+	}
+
+	.site-links {
+		font-size: 20px;
+		float: left;
+		margin-top: 10px;
+
+		li {
+			display: inline-block;
+			text-align: left;
+			float: left;
+			a {
+				padding: 8px;
+			}
+		}
+	}
+
+	@include breakpoint(600px) {
+		 max-width: 168px;
+
+		.sandwich-menu {
+			display: block;
+		}
+
+		.site-links {
+			height: 0;
+			width: 0;
+			overflow: hidden;
+
+			li {
+				padding: 8px 0;
+				text-align: center;
+				a {
+					padding: 4px 8px;
+				}
+			}
+		}
+
+		&.active {
+			.site-links {
+				height: auto;
+				width: auto;
+			}
+		}
+	}
+}
+
+.page-header {
+	background-image: image-url('theyogaclasses-home.jpg');
+	background-position: center 60%;
+
+	h1 {
+		text-shadow: 0 0 12px #000;
+	}
+}

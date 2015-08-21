@@ -1,0 +1,17 @@
+a {
+  color: $color-link-text-main;
+  background-color: $color-link-background;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+  font-weight: bold;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-left: -2px;
+  margin-right: -2px;
+  
+ 	&:hover {
+ 		text-decoration: none;
+ 		background-color: $color-link-background-hover;
+ 		color: $color-link-text-hover;
+ 	}
+}

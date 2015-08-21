@@ -36,7 +36,7 @@ class JobsController < ApplicationController
 		  charge = Stripe::Charge.create(
 		    :customer    => customer.id,
 		    :amount      => 2500,
-		    :description => 'We Hire Fitness Job Posting',
+		    :description => 'wehirefitness.com Job Posting',
 		    :currency    => 'usd'
 		  )
 
@@ -45,10 +45,21 @@ class JobsController < ApplicationController
 		  return redirect_to jobs_complete_purchase_path
 		end
 
-		@job = Job.create(session[:job])
+		@job = Job.new(session[:job])
+		@job.stripe_customer_id = customer.id
+		@job.stripe_charge_id = charge.id
+		@job.save
+
 		session[:job] = nil
 		flash[:notice] = 'Your job has been posted!'
-		redirect_to root_path
+
+		JobMailer.new_job_receipt(@job, charge).deliver
+
+		redirect_to jobs_thank_you_path
+	end
+
+	def thank_you
+
 	end
 
   private
