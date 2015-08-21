@@ -9,10 +9,10 @@
 			<% else %>
 				<% jobs.each do |job| %>
 					<div class='job'>
-						<div class='company-name'><%= job.company_name %></div>
-						<div class='job-title'><%= link_to job.title, @job %></div>
-						<div class='location'><%= job.city %>, <%= job.state %></div>
-						<div class='posted-on'><%= job.created_at.strftime('%b %d') %></div>
+						<span class='company-name'><%= job.company_name %></span>
+						<span class='job-title'><%= link_to job.title, job %></span>
+						<span class='location'><%= job.city %>, <%= job.state %></span>
+						<span class='posted-on'><%= job.created_at.strftime('%b %d') %></span>
 					</div>
 				<% end %>
 			<% end %>
