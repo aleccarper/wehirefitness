@@ -1,0 +1,44 @@
+.page-intro {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.category-wrap {
+	margin-top: 40px;
+	margin-bottom: 40px;
+
+	.title {
+
+	}
+
+	.no-jobs-found {
+		margin: 10px;
+	}
+
+	.job {
+		margin-left: 8px;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		padding-left: 4px;
+		padding-right: 4px;
+		border-bottom: 1px dotted $offset-color;
+		width: 100%;
+		display: block;
+
+		.company-name {
+
+		}
+
+		.job-title {
+
+		}
+
+		.location {
+
+		}
+
+		.posted-on {
+			float: right;
+		}
+	}
+}

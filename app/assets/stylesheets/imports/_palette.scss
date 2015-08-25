@@ -1,39 +1,40 @@
 $white: #fff;
-$base-color: #009FDA;
+$base-color: #f6f6f6;
+$offset-color: #009FDA;
+$text-color: #2b2b2b;
 
 $border-radius: 15px;
 
 $color-background-main: $base-color;
-$color-text-main: $white;
-$color-header-main: $white;
-
+$color-text-main: $text-color;
+$color-header-main: #323232;
 
 
 /*
 	LAYOUT
 */
-$color-section-background-main: darken($base-color, 15%);
-$color-section-border-main: darken($base-color, 10%);
+$color-section-background-main: $base-color;
+$color-section-border-main: $base-color;
 
 
 
 /*
 	HEADER
 */
-$color-header-background-main: darken($base-color, 15%);
-$color-header-text-main: $white;
-$color-header-text-hover: $white;
+$color-header-background-main: $offset-color;
+$color-header-text-main: $base-color;
+$color-header-text-hover: $offset-color;
 
 
 
 /*
 	BUTTONS
 */
-$color-button-background-main: $white;
-$color-button-text-main: darken($base-color, 10%);
-$color-button-border-main: $white;
+$color-button-background-main: $offset-color;
+$color-button-text-main: $white;
+$color-button-border-main: $offset-color;
 
-$color-button-background-hover: darken($base-color, 10%);
+$color-button-background-hover: darken($offset-color, 10%);
 $color-button-text-hover: $white;
 $color-button-border-hover: $white;
 
@@ -56,17 +57,18 @@ $color-input-text-main: darken($base-color, 25%);
 /*
 	LINKS
 */
-$color-link-text-main: $white;
+$color-link-text-main: $offset-color;
 $color-link-background: transparent;
-$color-link-text-hover: darken($base-color, 10%);
-$color-link-background-hover: $white;
+$color-link-text-hover: darken($offset-color, 10%);
+$color-link-background-hover: transparent;
 
 
 /*
 	FOOTER
 */
-$color-footer-background-main: darken($base-color, 15%);
+$color-footer-background-main: $offset-color;
 $color-footer-text-main: $white;
+$color-footer-text-hover: darken($white, 10%);
 
 
 

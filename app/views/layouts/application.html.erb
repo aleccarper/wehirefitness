@@ -10,12 +10,13 @@
 </head>
 <body class="<%= "#{controller.controller_name} #{@body_class}".strip %>">
   <div id='site-wrap'>
-<%
-
-%>
-		<h4 class='notice'><%= flash[:notice] %></h4>
+		<header id='site-header'>
+			<h1>We Hire Fitness</h1>
+		</header>
 		
 		<div id='site-content'>
+			<h4 class='notice'><%= flash[:notice] %></h4>
+
 			<%= yield %>
 		</div>
 

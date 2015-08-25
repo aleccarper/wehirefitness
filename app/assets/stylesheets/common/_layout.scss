@@ -42,12 +42,21 @@ body {
   color: $color-footer-text-main;
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
-  
+  text-align: center;
+
   position:absolute;
   bottom: 0;
   width: 100%;
   height: 50px;
   padding: 5px;
+
+  a {
+    color: $color-footer-text-main;
+
+    &:hover {
+      color: $color-footer-text-hover;
+    }
+  }
 }
 
 p, ol, ul, td {
