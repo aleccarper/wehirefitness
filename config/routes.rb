@@ -15,4 +15,9 @@ Rails.application.routes.draw do
 
   get '/jobs/:id', to: 'jobs#show', as: 'job'
 
+
+
+  #misc
+  get '/terms', to: 'legal#terms_and_conditions'
+  get '/privacy', to: 'legal#privacy_policy'
 end
