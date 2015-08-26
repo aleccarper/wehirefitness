@@ -12,6 +12,22 @@
 	font-family: "Open Sans Condensed",sans-serif;
 	font-weight: normal;
 
+	&.forward {
+		&:after {
+			font-family: "FontAwesome";
+			content: '\f178';
+			padding-left: 6px;
+		}
+	}
+
+	&.back {
+		&:before {
+			font-family: "FontAwesome";
+			content: '\f177';
+			padding-right: 6px;
+		}
+	}
+
 	&.large {
 		padding: 10px 15px;
 		font-size: 18px;

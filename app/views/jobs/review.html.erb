@@ -1,5 +1,5 @@
 <div class='job'>
-	<%= link_to 'Go back', root_path %>
+	<%= link_to 'Make a change', jobs_new_path, :class => 'button back' %>
 
 	<div class='job-header'>
 		<h2 class='job-title'><%= @job.title %></h2>
@@ -29,6 +29,6 @@
 
 
 <br />
-<%= link_to 'Make a change', jobs_new_path, :class => 'button' %>
+<%= link_to 'Make a change', jobs_new_path, :class => 'button back' %>
 <h6>If that all looks good, proceed on to purchasing to complete your job posting</h6>
-<%= link_to 'Purchase Listing', jobs_purchase_path, :class => 'button' %>
+<%= link_to 'Purchase Listing', jobs_purchase_path, :class => 'button forward' %>

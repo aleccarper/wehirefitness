@@ -1,3 +1,6 @@
+<%= link_to 'Home', jobs_new_path, :class => 'button back' %>
+<br />
+<br />
 <%= form_for(@job, :url => { :action => :review }) do |f| %>
   <h1>New Job</h1>
   <p>
@@ -59,7 +62,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit 'Preview your job posting' %>
+    <%= f.submit 'Preview your job posting', :class => 'forward' %>
   </div>
 <% end %>
 
