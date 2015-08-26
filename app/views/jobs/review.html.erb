@@ -1,33 +1,34 @@
-<h1>review</h1>
+<div class='job'>
+	<%= link_to 'Go back', root_path %>
 
-<h5>Title</h5>
-<%= @job.title %>
+	<div class='job-header'>
+		<h2 class='job-title'><%= @job.title %></h2>
+		<h6 class='posted-on'>Posted <%= Time.now.strftime('%b %d') %></h6>
+		<h5 class='company-details'>
+			<span class='company'><%= @job.company_name %></span>
+			<br />
+			<span class='location'><%= @job.city %>, <%= @job.state %></span>
+			<br />
+			<%= link_to @job.company_url, @job.company_url %>
+		</h5>
+	</div>
 
-<h5>Category</h5>
-<%= @category.name %>
+	<section class='job-description'>
+		<p>
+			<%= @job.description %>
+		</p>
+	</section>
 
-<h5>City</h5>
-<%= @job.city %>
+	<div class='apply-wrap'>
+		<h4>Apply for this job</h4>
+		<p>
+			<%= @job.how_to_apply %>
+		</p>
+	</div>
+</div>
 
-<h5>State</h5>
-<%= @job.state %>
-
-<h5>Zip</h5>
-<%= @job.zip %>
-
-<h5>Description</h5>
-<%= @job.description %>
-
-<h5>How To Apply</h5>
-<%= @job.how_to_apply %>
-
-<h5>Company Description</h5>
-<%= @job.company_description %>
 
 <br />
-<br />
-<br />
-<br />
-<%= link_to 'Make a change', jobs_new_path %>
-<h4>If that all looks good, proceed on to purchasing to complete your job posting</h4>
-<%= link_to 'Purchase Listing', jobs_purchase_path %>
+<%= link_to 'Make a change', jobs_new_path, :class => 'button' %>
+<h6>If that all looks good, proceed on to purchasing to complete your job posting</h6>
+<%= link_to 'Purchase Listing', jobs_purchase_path, :class => 'button' %>

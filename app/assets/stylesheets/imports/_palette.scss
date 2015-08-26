@@ -43,14 +43,14 @@ $color-button-border-hover: $white;
 /*
 	FORM
 */
-$color-form-text-main: $white;
-$color-form-background-main: darken($base-color, 20%);
-$color-form-border-main: darken($base-color, 20%);
-$color-form-background-hover: darken($base-color, 22%);
-$color-form-border-hover: darken($base-color, 22%);
+$color-form-text-main: $text-color;
+$color-form-background-main: #fff;
+$color-form-border-main: $offset-color;
+$color-form-background-hover: #fff;
+$color-form-border-hover: darken($offset-color, 10%);
 
 // inputs
-$color-input-text-main: darken($base-color, 25%);
+$color-input-text-main: $offset-color;
 
 
 

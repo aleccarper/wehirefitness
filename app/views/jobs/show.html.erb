@@ -1,15 +1,28 @@
-<%= link_to 'Go back', root_path %>
+<div class='job'>
+	<%= link_to 'Go back', root_path %>
 
-<% if @job.present? %>
-	<%= @job.to_yaml %>
+	<div class='job-header'>
+		<h2 class='job-title'><%= @job.title %></h2>
+		<h6 class='posted-on'>Posted <%= @job.created_at.strftime('%b %d') %></h6>
+		<h5 class='company-details'>
+			<span class='company'><%= @job.company_name %></span>
+			<br />
+			<span class='location'><%= @job.city %>, <%= @job.state %></span>
+			<br />
+			<%= link_to @job.company_url, @job.company_url %>
+		</h5>
+	</div>
 
-	<br />
+	<section class='job-description'>
+		<p>
+			<%= @job.description %>
+		</p>
+	</section>
 
-	<%= mail_to "info@theyogaclasses.com", 
-							"Report this job listing", 
-							subject: "Reporting job \##{@job.id}",
-							body: '' %>
-
-<% else %>
-	<h1>Job not found</h1>
-<% end %>
+	<div class='apply-wrap'>
+		<h4>Apply for this job</h4>
+		<p>
+			<%= @job.how_to_apply %>
+		</p>
+	</div>
+</div>
