@@ -10,9 +10,10 @@
   role: 'form',
   authenticity_token: true) do %>
 
-  <h1>purchase</h1>
+  <h1>Almost there...</h1>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Your ad is $25 and it will run for 30 days starting today.
+    Your ad will be reviewed by our staff before being listed on the main page. This only takes a few minutes. We reserve the right to deny or remove ads at our discretion (we will refund your money if we don’t run your ad). Any questions? Contact us by emailing support@wehirefitness.com 
   </p>
 
   <div class='payment-errors'></div>
@@ -39,6 +40,8 @@
     <span> / </span>
     <input type="text" size="4" data-stripe="exp-year"/>
   </div>
+
+  <br />
 
   <button type="submit" class='button forward'>Submit Payment</button>
 <% end %>

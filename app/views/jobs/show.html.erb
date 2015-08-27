@@ -25,4 +25,10 @@
 			<%= @job.how_to_apply %>
 		</p>
 	</div>
+
+
+	<br />
+	<br />
+	<br ?>
+	<p>Something smell fishy? <%= mail_to "info@theyogaclasses.com", "Report this job listing", subject: "Reporting job \##{@job.id}", body: '' %></p>
 </div>

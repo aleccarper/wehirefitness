@@ -1,3 +1,5 @@
+<h1>How does this look?</h1>
+
 <div class='job'>
 	<%= link_to 'Make a change', jobs_new_path, :class => 'button back' %>
 
@@ -28,7 +30,9 @@
 </div>
 
 
-<br />
-<%= link_to 'Make a change', jobs_new_path, :class => 'button back' %>
-<h6>If that all looks good, proceed on to purchasing to complete your job posting</h6>
-<%= link_to 'Purchase Listing', jobs_purchase_path, :class => 'button forward' %>
+<div class='review-action-wrap'>
+	<h6>Almost done – review your listing before posting live</h6>
+	<br />
+	<%= link_to 'Make a change', jobs_new_path, :class => 'button back' %>
+	<%= link_to 'Purchase Listing', jobs_purchase_path, :class => 'button forward' %>
+</div>

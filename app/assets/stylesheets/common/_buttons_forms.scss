@@ -11,6 +11,7 @@
 	font-size: 16px;
 	font-family: "Open Sans Condensed",sans-serif;
 	font-weight: normal;
+	
 
 	&.forward {
 		&:after {
@@ -46,7 +47,7 @@ form {
 	background-color: $color-form-background-main;
 	border-radius: $border-radius;
 	border: 1px solid $color-form-border-main;
-	padding: 15px;
+	padding: 30px 15px 15px;
 	transition: all 0.25s ease-in-out;
 	font-family: "Open Sans Condensed",sans-serif;
 

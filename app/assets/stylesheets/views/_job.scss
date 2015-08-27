@@ -38,3 +38,21 @@
 		padding: 20px;
 	}
 }
+
+.review-action-wrap {
+	margin-top: 50px;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+
+	.button, h6 {
+		display: inline-block;
+		text-align: center;
+	}
+
+	.button {
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-top: 5px;
+	}
+}
