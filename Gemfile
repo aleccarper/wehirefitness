@@ -35,6 +35,7 @@ gem 'rake'
 gem 'pg'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 group :development, :test do
   gem 'letter_opener'

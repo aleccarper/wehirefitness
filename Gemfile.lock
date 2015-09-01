@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/rails/activerecord-session_store.git
+  revision: 398ea815a4a5323b4523c05e44d4311b62168068
+  specs:
+    activerecord-session_store (0.1.1)
+      actionpack (>= 4.0.0, < 5)
+      activerecord (>= 4.0.0, < 5)
+      railties (>= 4.0.0, < 5)
+
+GIT
   remote: https://github.com/stripe/stripe-ruby
   revision: 5e3474c70cc4f140fe195fd51a5529ea8b23ca2f
   specs:
@@ -311,6 +320,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-session_store!
   autoprefixer-rails
   better_errors
   byebug

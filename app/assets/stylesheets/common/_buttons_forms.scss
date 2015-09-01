@@ -11,7 +11,7 @@
 	font-size: 16px;
 	font-family: "Open Sans Condensed",sans-serif;
 	font-weight: normal;
-	
+
 
 	&.forward {
 		&:after {
@@ -43,7 +43,7 @@
 
 
 form {
-	color: $color-form-text-main;
+	//color: $color-form-text-main;
 	background-color: $color-form-background-main;
 	border-radius: $border-radius;
 	border: 1px solid $color-form-border-main;
@@ -69,8 +69,8 @@ form {
 		width: auto;
 	}
 
-	input, select {
-		color: $color-input-text-main;
+	input, select, textarea {
+		//color: $color-input-text-main;
 		padding: 5px;
 	}
 }
