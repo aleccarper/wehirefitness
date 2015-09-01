@@ -69,6 +69,26 @@ pre {
   font-size: 11px;
 }
 
+hr {
+  border-style: dotted;
+  border-width: 1px;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-color: $offset-color;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+textarea {
+  width: 100% !important;
+  min-height: 150px;
+
+  &#job_description {
+    min-height: 300px;
+  }
+}
+
 .page-header {
   width: 100%;
   display: block;

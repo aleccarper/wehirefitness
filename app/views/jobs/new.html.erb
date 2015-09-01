@@ -3,9 +3,10 @@
 <br />
 <%= form_for(@job, :url => { :action => :review }) do |f| %>
   <h1>Let's get started</h1>
-  <p>Your job listing will remain on this site for 30 days. After 30 days your job listing will expire and be removed. You can always post the job again by filling out this form and making the $25 payment for an additional 30 days.
-  </p>
+  <p>Your job listing will remain on this site for 30 days. After 30 days your job listing will expire and be removed. You can always post the job again by filling out this form and making the $25 payment for an additional 30 days.</p>
 
+  <hr />
+  <h3>About the job...</h3>
   <div class="field">
     <%= f.label :job_title %><br>
     <%= f.text_field :title %>
@@ -40,23 +41,25 @@
     <%= f.text_area :how_to_apply %>
   </div>
 
+  <hr />
+  <h3>About your company...</h3>
   <div class="field">
-    <%= f.label :company_description %><br>
-    <%= f.text_field :company_description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :company_name %><br>
+    <%= f.label :name %><br>
     <%= f.text_field :company_name %>
   </div>
 
   <div class="field">
-    <%= f.label :company_url %><br>
+    <%= f.label :About %><br>
+    <%= f.text_area :company_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :URL %><br>
     <%= f.text_field :company_url %>
   </div>
 
   <div class="field">
-    <%= f.label :company_email %><br>
+    <%= f.label :Email %><br>
     <%= f.text_field :company_email %>
   </div>
 
