@@ -20,6 +20,9 @@ class Job < ActiveRecord::Base
     [city, state, zip.to_s].reject(&:blank?).join(' ')
   end
 
+  scope :visible, -> { where('published=? AND created_at > ?', true, 30.days.ago) }
+  scope :unpublished, -> { where('published=? AND created_at > ?', false, 30.days.ago) }
+
   private
 
   def set_full_address

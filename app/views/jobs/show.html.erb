@@ -1,33 +1,56 @@
 <div class='job'>
 	<%= link_to 'Go back', root_path %>
+	<% if @job %>
 
-	<div class='job-header'>
-		<h2 class='job-title'><%= @job.title %></h2>
-		<h6 class='posted-on'>Posted <%= @job.created_at.strftime('%b %d') %></h6>
-		<h5 class='company-details'>
-			<span class='company'><%= @job.company_name %></span>
-			<br />
-			<span class='location'><%= @job.city %>, <%= @job.state %></span>
-			<br />
-			<%= link_to @job.company_url, @job.company_url %>
-		</h5>
-	</div>
 
-	<section class='job-description'>
-		<p>
-			<%= @job.description %>
-		</p>
-	</section>
+		<div class='job-header'>
+			<% if current_admin %>
+				<% if !@job.published && !@job.stripe_charge_id %>
+					<%= link_to 'Publish & charge', jobs_charge_and_publish_path(id: @job.id), :class => 'button', :method => :post %>
+				<% end %>
 
-	<div class='apply-wrap'>
-		<h4>Apply for this job</h4>
-		<p>
-			<%= @job.how_to_apply %>
-		</p>
-	</div>
+				<% if @job.published %>
+					<%= link_to 'Unpublish', jobs_unpublish_path(id: @job.id), :class => 'button', :method => :post %>
+				<% elsif @job.stripe_charge_id %>
+					<%= link_to 'Republish', jobs_publish_path(id: @job.id), :class => 'button', :method => :post %>
+				<% end %>
 
-	<br />
-	<br />
-	<br ?>
-	<p>Something smell fishy? <%= mail_to "info@theyogaclasses.com", "Report this job listing", subject: "Reporting job \##{@job.id}", body: '' %></p>
+				<p>Something smell fishy? <%= mail_to @job.company_email, @job.company_email, subject: "", body: '' %></p>
+				<br><br><br><br>
+			<% end %>
+
+			<h2 class='job-title'><%= @job.title %></h2>
+			<h6 class='posted-on'>Posted <%= @job.created_at.strftime('%b %d') %></h6>
+			<h5 class='company-details'>
+				<span class='company'><%= @job.company_name %></span>
+				<br />
+				<span class='location'><%= @job.city %>, <%= @job.state %></span>
+				<br />
+				<%= link_to @job.company_url, @job.company_url %>
+			</h5>
+		</div>
+
+		<section class='job-description'>
+			<p>
+				<%= @job.description %>
+			</p>
+		</section>
+
+		<div class='apply-wrap'>
+			<h4>Apply for this job</h4>
+			<p>
+				<%= @job.how_to_apply %>
+			</p>
+		</div>
+
+		<br />
+		<br />
+		<br ?>
+		<p>Something smell fishy? <%= mail_to "info@theyogaclasses.com", "Report this job listing", subject: "Reporting job \##{@job.id}", body: '' %></p>
+	<% else %>
+		<div class='job-header'>
+			<h2>Job not found</h2>
+			<p>The job listing you were looking for doesn’t seem to exist anymore. Job listings expire in 30 days. It’s possible that the job listing has expired, or it has already been filled.</p>
+		</div>
+	<% end %>
 </div>

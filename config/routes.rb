@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   root 'home#index'
 
   get '/jobs/new', to: 'jobs#new'
@@ -15,7 +16,9 @@ Rails.application.routes.draw do
 
   get '/jobs/:id', to: 'jobs#show', as: 'job'
 
-
+  post '/jobs/charge_and_publish', to: 'jobs#charge_and_publish'
+  post '/jobs/unpublish', to: 'jobs#unpublish'
+  post '/jobs/publish', to: 'jobs#publish'
 
   #misc
   get '/terms', to: 'legal#terms_and_conditions'

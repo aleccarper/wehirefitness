@@ -13,6 +13,10 @@
 		<header id='site-header'>
 			<h1>We Hire Fitness</h1>
 		</header>
+
+		<% if current_admin %>
+			<%= link_to 'Sign Out', destroy_admin_session_path, :method => :delete %>
+		<% end %>
 		
 		<div id='site-content'>
 			<h4 class='notice'><%= flash[:notice] %></h4>

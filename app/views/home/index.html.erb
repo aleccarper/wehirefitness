@@ -7,8 +7,25 @@
 
 	<br />
 	<%= link_to 'Post a job - $25 for 30 days', jobs_new_path, :class => 'button' %>
-
 </div>
+
+
+
+<% if current_admin && @unpublished_jobs %>
+	<div class='jobs-wrap'>
+		<div class='category-wrap'>
+			<h3 class='title'>Unpublished</h3>
+			<% @unpublished_jobs.each do |job| %>
+				<div class='job'>
+					<span class='company-name'><%= job.company_name %></span>
+					<span class='job-title'><%= link_to job.title, job %></span>
+					<span class='location'>- <%= job.city %>, <%= job.state %></span>
+					<span class='posted-on'><%= job.created_at.strftime('%b %d') %></span>
+				</div>
+			<% end %>
+		</div>
+	</div>
+<% end %>
 
 <div class='jobs-wrap'>
 	<% @jobs.each do | cat_name, jobs | %>
