@@ -51,6 +51,26 @@ form {
 	transition: all 0.25s ease-in-out;
 	font-family: "Open Sans Condensed",sans-serif;
 
+
+
+	.field {
+		margin-top: 25px;
+
+		label {
+			font-family: "Lato",sans-serif;
+			font-weight: bold;
+		}
+
+		.description {
+			margin-top: 5px;
+			color: #8c8c8c;
+		}
+
+		input {
+			margin-top: 5px;
+		}
+	}
+
 	&:hover {
 		background-color: $color-form-background-hover;
 		border: 1px solid $color-form-border-hover;

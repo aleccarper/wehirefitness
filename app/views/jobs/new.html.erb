@@ -8,7 +8,8 @@
   <hr />
   <h3>About the job...</h3>
   <div class="field">
-    <%= f.label :job_title %><br>
+    <%= f.label :job_title %>
+    <div class='description'>"Yoga Teacher" or “Zumba Instructor”</div>
     <%= f.text_field :title %>
   </div>
   <div class="field">
@@ -33,11 +34,13 @@
 
   <div class="field">
     <%= f.label :description %><br>
+    <div class='description'>Detailed information about this job posting.</div>
     <%= f.text_area :description %>
   </div>
 
   <div class="field">
     <%= f.label :how_to_apply %><br>
+    <div class='description'>Example: Send your resume to hr@mybusiness.com</div>
     <%= f.text_area :how_to_apply %>
   </div>
 
@@ -45,21 +48,25 @@
   <h3>About your company...</h3>
   <div class="field">
     <%= f.label :name %><br>
+    <div class='description'>Enter your company name.</div>
     <%= f.text_field :company_name %>
   </div>
 
   <div class="field">
     <%= f.label :About %><br>
+    <div class='description'>A short description of your company.</div>
     <%= f.text_area :company_description %>
   </div>
 
   <div class="field">
-    <%= f.label :URL %><br>
+    <%= f.label :Website %><br>
+    <div class='description'>Example: https://mybusiness.com/careers/</div>
     <%= f.text_field :company_url %>
   </div>
 
   <div class="field">
     <%= f.label :Email %><br>
+    <div class='description'>This is where we’ll send your receipt and confirmation email.</div>
     <%= f.text_field :company_email %>
   </div>
 

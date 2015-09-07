@@ -6,9 +6,9 @@ class CreateJobs < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zip
-      t.string :description
-      t.string :how_to_apply
-      t.string :company_description
+      t.text :description
+      t.text :how_to_apply
+      t.text :company_description
       t.boolean :premium
 
       t.timestamps
