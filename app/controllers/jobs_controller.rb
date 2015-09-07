@@ -82,6 +82,19 @@ class JobsController < ApplicationController
 	end
 
 	def complete_purchase
+		if current_admin
+			redirect_to jobs_thank_you_path
+
+			@job = Job.new(session[:job])
+			@job.stripe_charge_id = '123test'
+			@job.published = true
+			@job.save
+
+			session[:job] = nil
+			flash[:notice] = 'Your job has been posted!'
+			return
+		end
+
 		begin
 		  customer = Stripe::Customer.create(
 		    :email => session[:job][:company_email],
