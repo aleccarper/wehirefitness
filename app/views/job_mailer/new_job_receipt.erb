@@ -1,7 +1,10 @@
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Looks like you’ve finished adding your job posting to the website, Congratulations!</p>
+<p>Our goal is to drive qualified traffic to our site and make sure they see your listing.  At the end of the day, you want to hire the right people and we like happy customers. If there is anything else we can provide to you, please don’t hesitate to reach out to our team by emailing support@wehirefitness.com</p>
 
-<%= link_to 'Check it out', @job %>
-
+<p>Happy Listing!</p>
+<p><%= link_to 'Check out your posting!', @job %></p>
+<p>We Hire Team</p>
+<br>
 <p>Receipt:</p>
 <div style='padding-left: 8px;'>
   <div>Date: <%= Time.at(@charge[:created]).strftime("%d %b %Y%l:%M %p %Z") %></div>
@@ -9,4 +12,3 @@
   <div>Charged to: <%= @charge[:source][:brand] %> (**** **** **** <%= @charge[:source][:last4] %>)</div>
   <div>Charge ID: <%= @charge[:id] %></div>
 </div>
-
