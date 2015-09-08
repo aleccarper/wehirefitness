@@ -1,5 +1,5 @@
 *, *:before, *:after {
-  box-sizing: padding-box;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -61,6 +61,14 @@ body {
 
 p, ol, ul, td {
 
+}
+
+p, ol, ul {
+  margin-top: 10px;
+}
+
+strong, b {
+  font-weight: bold;
 }
 
 pre {
