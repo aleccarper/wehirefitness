@@ -34,6 +34,7 @@ gem 'geocoder'
 gem 'rake'
 gem 'pg'
 gem 'postmark-rails'
+gem 'meta-tags'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
