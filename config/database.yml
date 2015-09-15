@@ -8,3 +8,16 @@ development:
   timeout: 5000
 
 
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: wehirefitness_test
+  host: localhost
+  pool: 5
+  username: rails
+  password: rails
+
+cucumber:
+  <<: *test
+
+
