@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   #misc
   get '/terms', to: 'legal#terms_and_conditions'
   get '/privacy', to: 'legal#privacy_policy'
+
+  get '/sitemap.:format', to: 'home#sitemap'
 end

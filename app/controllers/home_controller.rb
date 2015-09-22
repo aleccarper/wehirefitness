@@ -11,5 +11,7 @@ class HomeController < ApplicationController
 		end
 	end
 
-
+  def sitemap
+    @jobs = Job.all.visible
+  end
 end
