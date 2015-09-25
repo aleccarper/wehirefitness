@@ -6,14 +6,23 @@ class JobsController < ApplicationController
 		else
 			@job = Job.visible.find_by_id(params[:id])
 		end
+
+    if @job
+      set_meta_tags :title => @job.title + " at " + @job.company_name
+    else
+      set_meta_tags :title => "Job not found"
+    end
 	end
 
 	def new
 		@job = Job.new(session[:job])
+    set_meta_tags :title => "Describe your job listing"
 	end
 
 	def review
 		if(params[:job] || session[:job])
+      set_meta_tags :title => "Review your job listing"
+
 			if(params[:job])
 				session[:job] = job_params
 			end
@@ -26,7 +35,7 @@ class JobsController < ApplicationController
 	end
 
 	def purchase
-
+    set_meta_tags :title => "Almost there..."
 	end
 
 	def publish
@@ -116,8 +125,8 @@ class JobsController < ApplicationController
 	end
 
 	def thank_you
-
-	end
+    set_meta_tags :title => "Your job has been posted!"
+	end  
 
   private
 
