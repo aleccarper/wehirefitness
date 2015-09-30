@@ -35,7 +35,21 @@
   <div class="field">
     <%= f.label :description %><br>
     <div class='description'>Detailed information about this job posting.</div>
-    <%= f.text_area :description %>
+
+    <div id="toolbar">
+      <a data-wysihtml5-command="bold">bold</a>
+      <a data-wysihtml5-command="italic">italic</a>
+      <a data-wysihtml5-command="insertOrderedList">LI</a>
+      <a data-wysihtml5-command="insertUnorderedList">UL</a>
+    </div>
+    <%= f.text_area :description, id: 'editor', 'placeholder' => :description %>
+
+    <script>
+      var editor = new wysihtml5.Editor('editor', {
+        toolbar: 'toolbar',
+        parserRules:  wysihtml5ParserRules
+      });
+    </script>
   </div>
 
   <div class="field">
@@ -74,6 +88,7 @@
     <%= f.submit 'Preview your job posting', :class => 'forward' %>
   </div>
 <% end %>
+
 
 
 <script type="text/javascript">

@@ -1,0 +1,19 @@
+{
+  "name": "wehirefitness",
+  "version": "0.0.0",
+  "homepage": "https://github.com/0x5378/wehirefitness",
+  "authors": [
+    "Alec Carper <xarious@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery.validate
 //= require turbolinks
+//= require wysihtml5x/dist/wysihtml5x-toolbar.min.js
 //= require_tree .
