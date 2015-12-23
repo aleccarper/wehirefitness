@@ -37,10 +37,10 @@
     <div class='description'>Detailed information about this job posting.</div>
 
     <div id="toolbar">
-      <a data-wysihtml5-command="bold">bold</a>
-      <a data-wysihtml5-command="italic">italic</a>
-      <a data-wysihtml5-command="insertOrderedList">LI</a>
-      <a data-wysihtml5-command="insertUnorderedList">UL</a>
+      <a data-wysihtml5-command="bold" class='bold button small'>bold</a>
+      <a data-wysihtml5-command="italic" class='italic button small'>italic</a>
+      <a data-wysihtml5-command="insertUnorderedList" class='bullets button small'>Bullets</a>
+      <a data-wysihtml5-command="insertOrderedList" class='numbers button small'>Numbers</a>
     </div>
     <%= f.text_area :description, id: 'editor', 'placeholder' => :description %>
 
