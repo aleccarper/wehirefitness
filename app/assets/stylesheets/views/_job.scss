@@ -4,10 +4,8 @@
   padding: 30px 15px 15px;
 
 	.job-header {
-		margin-top: 30px;
-
 		.job-title {
-
+      margin: 0;
 		}
 
 		.posted-on {
@@ -33,6 +31,16 @@
 	.job-description {
 		margin-top: 50px;
 
+    ol, ul {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      list-style: inherit;
+    }
+
+    li {
+
+    }
 	}
 
 	.apply-wrap {

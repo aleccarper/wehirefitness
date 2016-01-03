@@ -1,8 +1,8 @@
+<%= link_to 'Go back', root_path, class: 'button back' %>
+<br>
+<br>
 <div class='job-posting'>
-	<%= link_to 'Go back', root_path, class: 'button back' %>
 	<% if @job %>
-
-
 		<div class='job-header'>
 			<% if current_admin %>
 				<% if !@job.published && !@job.stripe_charge_id %>
@@ -21,13 +21,13 @@
 
 			<h2 class='job-title'><%= @job.title %></h2>
 			<h6 class='posted-on'>Posted <%= @job.created_at.strftime('%b %d') %></h6>
-			<h5 class='company-details'>
+			<p class='company-details'>
 				<span class='company'><%= @job.company_name %></span>
 				<br />
 				<span class='location'><%= @job.city %>, <%= @job.state %></span>
 				<br />
-				<%= link_to @job.company_url, @job.company_url %>
-			</h5>
+				<%= link_to @job.company_url, @job.company_url, target: '_blank' %>
+			</p>
 		</div>
 
 		<section class='job-description'>
