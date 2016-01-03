@@ -2,17 +2,56 @@
   display: block;
   height: auto;
   margin: 0;
-  padding: 50px 8px;
   position: relative;
   width: 100%;
   z-index: 10;
   text-transform: uppercase;
   text-align: center;
+  position: relative;
+  height: 265px;
 
-  background-color: $color-header-background-main;
-  color: $color-header-text-main;
+  .blue-bar {
+    background-color: $color-header-background-main;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+  }
 
-  h1 {
-  	color: $color-header-text-main;
+  .header-content {
+    top: 30px;
+    position: relative;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .header-img {
+      @include box-shadow();
+    }
+
+    h1 {
+      margin: 0;
+      position: absolute;
+      bottom: -283px;
+      text-shadow: 4px 4px 7px rgba(0, 0, 0, 0.3);
+
+      span {
+        display: block;
+        line-height: 0.85em;
+      }
+
+      .we {
+        font-size: 160px;
+      }
+
+      .hire {
+        font-size: 108px;
+      }
+
+      .fitness {
+        font-size: 61px;
+      }
+    }
   }
 }

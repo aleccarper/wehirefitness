@@ -1,15 +1,13 @@
-<div class='page-intro'>
-<h5>Here at We Hire Fitness, our mission is to connect employers in the fitness industry with people who are passionate about health, happiness and fitness. </h5>
-
-<p><h3 class='color-blue'>Employers:</h3> You can post job openings from across the country and seek out the best talent.</p>
-
-<p><h3 class='color-blue'>Job seekers:</h3> Will have access to connect with employers and submit your resume directly to hiring managers.  Enough chasing around searching high and low for companies looking for your talent.</p>
-
-	<br />
-	<%= link_to 'Post a job - $25 for 30 days', jobs_new_path, :class => 'button' %>
+<div class='pop-box'>
+  Here at We Hire Fitness, our mission is to connect employers in the fitness industry with people who are passionate about health, happiness and fitness.
 </div>
 
+<p><h4 class='color-blue'>Employers:</h4> You can post job openings from across the country and seek out the best talent.</p>
 
+<p><h4 class='color-blue'>Job seekers:</h4> Will have access to connect with employers and submit your resume directly to hiring managers.  Enough chasing around searching high and low for companies looking for your talent.</p>
+
+<br />
+<%= link_to 'Post a job - $25 for 30 days', jobs_new_path, :class => 'button' %>
 
 <% if current_admin && @unpublished_jobs %>
 	<div class='jobs-wrap'>

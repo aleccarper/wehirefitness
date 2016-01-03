@@ -21,3 +21,14 @@ a {
 .color-blue {
   color: $offset-color;
 }
+
+.pop-box {
+  padding: 30px;
+  border: 3px solid $color-action-main;
+  font-size: 19px;
+  line-height: 1em;
+  text-align: center;
+  box-shadow: 10px 10px 5px #000;
+
+  @include box-shadow();
+}
