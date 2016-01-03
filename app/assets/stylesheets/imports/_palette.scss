@@ -1,6 +1,8 @@
 $white: #fff;
 $base-color: #f6f6f6;
-$offset-color: #009FDA;
+$offset-color: #0085da;
+$color-action-main: #fe8c07;
+$color-action-hover: darken($color-action-main, 10%);
 $text-color: #2b2b2b;
 
 $border-radius: 15px;
@@ -26,17 +28,22 @@ $color-header-text-main: $base-color;
 $color-header-text-hover: $offset-color;
 
 
+/*
+  TYPOGRAPHY
+*/
+$color-header-main: $offset-color;
+
 
 /*
 	BUTTONS
 */
-$color-button-background-main: $offset-color;
+$color-button-background-main: $color-action-main;
 $color-button-text-main: $white;
-$color-button-border-main: $offset-color;
+$color-button-border-main: $color-action-main;
 
-$color-button-background-hover: darken($offset-color, 10%);
+$color-button-background-hover: $color-action-hover;
 $color-button-text-hover: $white;
-$color-button-border-hover: transparent;
+$color-button-border-hover: $color-action-main;
 
 
 
@@ -51,15 +58,15 @@ $color-form-border-hover: darken($offset-color, 10%);
 
 // inputs
 $color-input-text-main: $offset-color;
-
+$color-input-background-main: $base-color;
 
 
 /*
 	LINKS
 */
-$color-link-text-main: $offset-color;
+$color-link-text-main: $color-action-main;
 $color-link-background: transparent;
-$color-link-text-hover: darken($offset-color, 10%);
+$color-link-text-hover: $offset-color;
 $color-link-background-hover: transparent;
 
 

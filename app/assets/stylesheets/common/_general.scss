@@ -8,10 +8,16 @@ a {
   padding-right: 2px;
   margin-left: -2px;
   margin-right: -2px;
-  
+  border-bottom: 1px solid transparent;
+
  	&:hover {
  		text-decoration: none;
  		background-color: $color-link-background-hover;
  		color: $color-link-text-hover;
+    border-bottom: 1px solid $color-link-text-main;
  	}
+}
+
+.color-blue {
+  color: $offset-color;
 }

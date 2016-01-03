@@ -1,9 +1,16 @@
+html, body, p, input, textarea, select {
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6 {
-	color: $color-header-main;
+  text-transform: uppercase;
 	margin: 0;
 	padding: 0;
 	line-height: 1em;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Anton', sans-serif;
+  margin-top: 1em;
+  margin-bottom: 0.25em;
 }
 
 h1 {
@@ -22,12 +29,12 @@ h4 {
 	font-size: 28px;
 }
 
-h5 { 
+h5 {
 	font-size: 22px;
 }
 
 h6 {
-	font-size: 14px;
+  font-size: 16px;
 }
 
 b, strong {

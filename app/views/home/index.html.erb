@@ -1,9 +1,9 @@
 <div class='page-intro'>
 <h5>Here at We Hire Fitness, our mission is to connect employers in the fitness industry with people who are passionate about health, happiness and fitness. </h5>
 
-<p><b>Employers:</b> You can post job openings from across the country and seek out the best talent.</p>
+<p><h3 class='color-blue'>Employers:</h3> You can post job openings from across the country and seek out the best talent.</p>
 
-<p><b>Job seekers:</b> Will have access to connect with employers and submit your resume directly to hiring managers.  Enough chasing around searching high and low for companies looking for your talent.</p>
+<p><h3 class='color-blue'>Job seekers:</h3> Will have access to connect with employers and submit your resume directly to hiring managers.  Enough chasing around searching high and low for companies looking for your talent.</p>
 
 	<br />
 	<%= link_to 'Post a job - $25 for 30 days', jobs_new_path, :class => 'button' %>
@@ -36,8 +36,8 @@
 			<% else %>
 				<% jobs.each do |job| %>
 					<div class='job'>
-						<span class='company-name'><%= job.company_name %></span>
-						<span class='job-title'><%= link_to job.title, job %></span>
+            <span class='job-title'><%= link_to job.title, job %></span>
+						<span class='company-name'> - <%= job.company_name %></span>
 						<span class='location'>- <%= job.city %>, <%= job.state %></span>
 						<span class='posted-on'><%= job.created_at.strftime('%b %d') %></span>
 					</div>

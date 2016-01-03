@@ -1,15 +1,18 @@
 .button, input[type='submit'] {
 	color: $color-button-text-main;
 	background-color: $color-button-background-main;
-	border: 1px solid $color-button-border-main;
-	padding: 8px 10px 5px;
-	border-radius: $border-radius;
+  border: 0px;
+  border-left: 6px solid $color-button-border-hover;
+  border-right: 6px solid $color-button-border-hover;
+
+	padding: 8px 10px 8px;
+	border-radius: 0;
 	text-transform: uppercase;
 	cursor:pointer;
 	display: inline-block;
 	transition: all 0.25s ease-in-out;
 	font-size: 16px;
-	font-family: "Open Sans Condensed",sans-serif;
+	font-family: 'Anton', sans-serif;
 	font-weight: normal;
 
 
@@ -37,21 +40,18 @@
 	&:hover {
 		color: $color-button-text-hover;
 		background-color: $color-button-background-hover;
-		border: 1px solid $color-button-border-hover;
+		border-left: 6px solid $color-button-border-hover;
+    border-right: 6px solid $color-button-border-hover;
+    border-radius: $border-radius;
+    border-bottom: 0px !important;
 	}
 }
 
 
 form {
-	//color: $color-form-text-main;
 	background-color: $color-form-background-main;
-	border-radius: $border-radius;
 	border: 1px solid $color-form-border-main;
 	padding: 30px 15px 15px;
-	transition: all 0.25s ease-in-out;
-	font-family: "Open Sans Condensed",sans-serif;
-
-
 
 	.field {
 		margin-top: 25px;
@@ -95,7 +95,8 @@ form {
 	}
 
 	input, select, textarea {
-		//color: $color-input-text-main;
+    border: 1px dotted $color-form-border-main;
+    background-color: $color-input-background-main;
 		padding: 5px;
 	}
 }
