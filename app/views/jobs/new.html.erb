@@ -36,26 +36,20 @@
     <%= f.label :description %><br>
     <div class='description'>Detailed information about this job posting.</div>
 
-    <div id="toolbar">
-      <a data-wysihtml5-command="bold" class='bold button small'>bold</a>
-      <a data-wysihtml5-command="italic" class='italic button small'>italic</a>
-      <a data-wysihtml5-command="insertUnorderedList" class='bullets button small'>Bullets</a>
-      <a data-wysihtml5-command="insertOrderedList" class='numbers button small'>Numbers</a>
-    </div>
-    <%= f.text_area :description, id: 'editor', 'placeholder' => :description %>
+    <%= f.text_area :description, id: 'description_editor', 'placeholder' => :description %>
 
     <script>
-      var editor = new wysihtml5.Editor('editor', {
-        toolbar: 'toolbar',
-        parserRules:  wysihtml5ParserRules
-      });
+      $('#description_editor').froalaEditor();
     </script>
   </div>
 
   <div class="field">
     <%= f.label :how_to_apply %><br>
     <div class='description'>Example: Send your resume to hr@mybusiness.com</div>
-    <%= f.text_area :how_to_apply %>
+    <%= f.text_area :how_to_apply, id: 'apply_editor' %>
+    <script>
+      $('#apply_editor').froalaEditor();
+    </script>
   </div>
 
   <hr />
@@ -63,13 +57,19 @@
   <div class="field">
     <%= f.label :name %><br>
     <div class='description'>Enter your company name.</div>
-    <%= f.text_field :company_name %>
+    <%= f.text_field :company_name, id: 'about_editor' %>
+    <script>
+      $('#about_editor').froalaEditor();
+    </script>
   </div>
 
   <div class="field">
     <%= f.label :About %><br>
     <div class='description'>A short description of your company.</div>
-    <%= f.text_area :company_description %>
+    <%= f.text_area :company_description, id: 'company_editor' %>
+    <script>
+      $('#company_editor').froalaEditor();
+    </script>
   </div>
 
   <div class="field">
@@ -89,29 +89,26 @@
   </div>
 <% end %>
 
-
-
 <script type="text/javascript">
-$(document).ready(function () {
-  $('#new_job').validate({
-    debug: true,
-    rules: {
-      'job[title]': { required: true },
-      'job[city]': { required: true },
-      'job[zip]': { required: true },
-      'job[description]': { required: true },
-      'job[how_to_apply]': { required: true },
-      'job[company_name]': { required: true },
-      'job[company_description]': { required: true },
-      'job[company_url]': { required: true },
-      'job[company_email]': { required: true, email: true },
-    },
-    submitHandler: function(form) {
-      form.submit();
-    }
+  $(document).ready(function () {
+    $('#new_job').validate({
+      debug: true,
+      rules: {
+        'job[title]': { required: true },
+        'job[city]': { required: true },
+        'job[zip]': { required: true },
+        'job[description]': { required: true },
+        'job[how_to_apply]': { required: true },
+        'job[company_name]': { required: true },
+        'job[company_description]': { required: true },
+        'job[company_url]': { required: true },
+        'job[company_email]': { required: true, email: true },
+      },
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
   });
-});
-
 </script>
 
 

@@ -1,0 +1,28 @@
+<div class='job-posting'>
+  <div class='job-header'>
+    <h2 class='job-title'><%= job.title %></h2>
+    <h6 class='posted-on'>Posted <%= (job.created_at || Date.today).strftime('%b %d') %></h6>
+    <p class='company-details'>
+      <span class='company'><%= link_to job.company_name, job.company_url, target: '_blank' %></span>
+      <br />
+      <span class='location'><%= job.city %>, <%= @job.state %></span>
+    </p>
+  </div>
+
+  <section class='job-description'>
+    <h4>About this position</h4>
+    <%=raw job.description %>
+  </section>
+
+  <div class='apply-wrap'>
+    <h4>How to apply for this job</h4>
+    <br>
+    <%=raw job.how_to_apply %>
+  </div>
+
+  <div class='apply-wrap'>
+    <h4>What <%= job.company_name %> is about</h4>
+    <br>
+    <%=raw job.company_description %>
+  </div>
+</div>

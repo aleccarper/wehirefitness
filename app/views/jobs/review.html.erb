@@ -1,34 +1,9 @@
 <h1>How does this look?</h1>
 
-<div class='job'>
-	<%= link_to 'Make a change', jobs_new_path, :class => 'button back' %>
-
-	<div class='job-header'>
-		<h2 class='job-title'><%= @job.title %></h2>
-		<h6 class='posted-on'>Posted <%= Time.now.strftime('%b %d') %></h6>
-		<h5 class='company-details'>
-			<span class='company'><%= @job.company_name %></span>
-			<br />
-			<span class='location'><%= @job.city %>, <%= @job.state %></span>
-			<br />
-			<%= link_to @job.company_url, @job.company_url %>
-		</h5>
-	</div>
-
-	<section class='job-description'>
-		<p>
-			<%= @job.description.html_safe %>
-		</p>
-	</section>
-
-	<div class='apply-wrap'>
-		<h4>Apply for this job</h4>
-		<p>
-			<%= @job.how_to_apply %>
-		</p>
-	</div>
-</div>
-
+<%= link_to 'Make a change', jobs_new_path, :class => 'button back' %>
+<br>
+<br>
+<%= render partial: 'jobs/job', locals: { job: @job } %>
 
 <div class='review-action-wrap'>
 	<h6>Almost done – review your listing before posting live</h6>

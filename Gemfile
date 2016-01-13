@@ -21,13 +21,9 @@ gem 'slim'
 gem 'sprockets-image_compressor'
 gem 'uglifier'
 gem 'underscore-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
-
+gem "wysiwyg-rails"
 gem 'devise'
 gem 'geocoder'
 
