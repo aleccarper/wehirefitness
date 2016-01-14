@@ -23,7 +23,8 @@ gem 'uglifier'
 gem 'underscore-rails'
 gem 'turbolinks'
 
-gem "wysiwyg-rails"
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootsy'
 gem 'devise'
 gem 'geocoder'
 

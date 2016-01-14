@@ -36,20 +36,13 @@
     <%= f.label :description %><br>
     <div class='description'>Detailed information about this job posting.</div>
 
-    <%= f.text_area :description, id: 'description_editor', 'placeholder' => :description %>
-
-    <script>
-      $('#description_editor').froalaEditor();
-    </script>
+    <%= f.bootsy_area :description, id: 'description_editor', 'placeholder' => :description %>
   </div>
 
   <div class="field">
     <%= f.label :how_to_apply %><br>
     <div class='description'>Example: Send your resume to hr@mybusiness.com</div>
-    <%= f.text_area :how_to_apply, id: 'apply_editor' %>
-    <script>
-      $('#apply_editor').froalaEditor();
-    </script>
+    <%= f.bootsy_area :how_to_apply, id: 'apply_editor' %>
   </div>
 
   <hr />
@@ -58,18 +51,12 @@
     <%= f.label :name %><br>
     <div class='description'>Enter your company name.</div>
     <%= f.text_field :company_name, id: 'about_editor' %>
-    <script>
-      $('#about_editor').froalaEditor();
-    </script>
   </div>
 
   <div class="field">
     <%= f.label :About %><br>
     <div class='description'>A short description of your company.</div>
-    <%= f.text_area :company_description, id: 'company_editor' %>
-    <script>
-      $('#company_editor').froalaEditor();
-    </script>
+    <%= f.bootsy_area :company_description, id: 'company_editor' %>
   </div>
 
   <div class="field">

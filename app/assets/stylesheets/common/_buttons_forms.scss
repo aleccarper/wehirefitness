@@ -99,4 +99,8 @@ form {
     background-color: $color-input-background-main;
 		padding: 5px;
 	}
+
+  textarea {
+    min-height: 300px;
+  }
 }

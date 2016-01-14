@@ -1,7 +1,9 @@
 /*
- *= require froala_editor.min.css
- *= require froala_style.min.css
+ *= require bootsy
 */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
