@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907201108) do
+ActiveRecord::Schema.define(version: 20160124175924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 20150907201108) do
     t.datetime "updated_at"
   end
 
+  create_table "job_notifications", force: true do |t|
+    t.integer  "seeker_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "job_notifications", ["category_id"], name: "index_job_notifications_on_category_id", using: :btree
+  add_index "job_notifications", ["seeker_id"], name: "index_job_notifications_on_seeker_id", using: :btree
+
   create_table "jobs", force: true do |t|
     t.string   "title"
     t.string   "category"
@@ -63,6 +73,23 @@ ActiveRecord::Schema.define(version: 20150907201108) do
     t.string   "stripe_charge_id"
     t.boolean  "published",           default: false
   end
+
+  create_table "seekers", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country",      default: "US"
+    t.string   "full_address"
+    t.string   "string"
+    t.integer  "radius"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+  end
+
+  add_index "seekers", ["email"], name: "index_seekers_on_email", unique: true, using: :btree
 
   create_table "sessions", force: true do |t|
     t.string   "session_id", null: false

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :admins
   root 'home#index'
 
+  # jobs
   get '/jobs/new', to: 'jobs#new'
 
   post '/jobs/review', to: 'jobs#review'
@@ -20,6 +21,10 @@ Rails.application.routes.draw do
   post '/jobs/charge_and_publish', to: 'jobs#charge_and_publish'
   post '/jobs/unpublish', to: 'jobs#unpublish'
   post '/jobs/publish', to: 'jobs#publish'
+
+
+  # seekers
+  post '/seeker/create', to: 'seeker#create'
 
   #misc
   get '/terms', to: 'legal#terms_and_conditions'

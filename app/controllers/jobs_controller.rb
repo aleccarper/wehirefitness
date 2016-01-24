@@ -95,7 +95,7 @@ class JobsController < ApplicationController
 			redirect_to jobs_thank_you_path
 
 			@job = Job.new(session[:job])
-			@job.stripe_charge_id = '123test'
+			@job.stripe_charge_id = 'admin_job_posting'
 			@job.published = true
 			@job.save
 
@@ -126,7 +126,7 @@ class JobsController < ApplicationController
 
 	def thank_you
     set_meta_tags :title => "Your job has been posted!"
-	end  
+	end
 
   private
 
