@@ -1,9 +1,8 @@
 require 'rails_helper'
 
-describe SeekerController do
-  let(:category1) { FactoryGirl.create(:category, id: 1, name: 'category 1') }
-  let(:category2) { FactoryGirl.create(:category, id: 2, name: 'category 2') }
-  let(:category3) { FactoryGirl.create(:category, id: 3, name: 'category 3') }
+describe SeekersController do
+  let!(:category1) { FactoryGirl.create(:category, name: 'category 1') }
+  let!(:category2) { FactoryGirl.create(:category, name: 'category 2') }
 
   describe 'create' do
 
@@ -26,7 +25,7 @@ describe SeekerController do
             country: 'US',
             radius: 50,
           },
-          categories: ['1', '2']
+          categories: [category1.id, category2.id]
         }
       }
 

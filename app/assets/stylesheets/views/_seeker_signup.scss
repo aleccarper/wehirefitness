@@ -1,0 +1,8 @@
+.signup-wrapper {
+  position: absolute;
+  top: 0;
+  right: -258px;
+  width: 220px;
+
+  @include box-shadow();
+}

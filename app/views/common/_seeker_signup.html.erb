@@ -1,0 +1,62 @@
+<% seeker ||= Seeker.new %>
+
+<div class='signup-wrapper'>
+  <%= form_for(seeker) do |f| %>
+    <h5>Sign up and get notified when new jobs are posted in your area!</h5>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.email_field :email %>
+    </div>
+
+     <div class="field">
+      <%= f.label :city %><br>
+      <%= f.text_field :city %>
+    </div>
+
+    <div class="field">
+      <%= f.label :state %><br>
+      <%= f.select :state, options_for_select(us_states, seeker.state), :name=>'state', :id=>'state' %>
+    </div>
+
+    <% get_categories.each do |category| %>
+      <div class="field">
+      <%= check_box_tag category.name, category.id, category.id, class: 'job-category'  %>
+      <%= label_tag category.name %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit 'Sign up!', :class => 'forward' %>
+    </div>
+  <% end %>
+
+
+  <script type="text/javascript">
+  /*
+    $(document).ready(function () {
+      $('#new_job').validate({
+        debug: true,
+        rules: {
+          'job[title]': { required: true },
+          'job[city]': { required: true },
+          'job[zip]': { required: true },
+          'job[description]': { required: true },
+          'job[how_to_apply]': { required: true },
+          'job[company_name]': { required: true },
+          'job[company_description]': { required: true },
+          'job[company_url]': { required: true },
+          'job[company_email]': { required: true, email: true },
+        },
+        submitHandler: function(form) {
+          form.submit();
+        }
+      });
+    });
+  */
+  </script>
+</div>

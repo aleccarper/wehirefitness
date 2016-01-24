@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
 
   # seekers
-  post '/seeker/create', to: 'seeker#create'
+  resources :seekers, only: [:create]
 
   #misc
   get '/terms', to: 'legal#terms_and_conditions'

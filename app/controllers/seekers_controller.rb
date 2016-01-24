@@ -1,4 +1,4 @@
-class SeekerController < ApplicationController
+class SeekersController < ApplicationController
 
   def create
     response = {}
