@@ -1,20 +1,42 @@
 var SeekerSignup = (function($, m) {
 
   var init = function() {
-    $('#new_seeker').submit(submitForm)
+    $('#new_seeker').validate({
+        rules: {
+          'seeker[name]': { required: true },
+          'seeker[email]': { required: true },
+          'seeker[city]': { required: true }
+        },
+        submitHandler: function(form) {
+          submitForm();
+        }
+      });
   };
 
-  var submitForm = function(event) {
-    event.preventDefault();
-    var $form = $(this).closest('form')
+  var submitForm = function() {
+    var $form = $('#new_seeker');
     var data = $form.serializeArray();
     data.categories = [];
+
     $form.find('.job-category').each(function(i, box) {
       if($(box).is(':checked')) {
         data.categories.push($(box).attr('value'));
       }
     });
-    console.log(data);
+
+    $.ajax({
+      method: 'POST',
+      data: data,
+      url: $form.attr('action')
+    }).done(function(response) {
+      if(response.errors) {
+        alert('Something went wrong :(');
+      } else {
+        alert('Thanks for signing up!');
+      }
+    });
+
+    return false;
   }
 
   return {

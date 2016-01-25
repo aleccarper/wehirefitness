@@ -4,6 +4,8 @@ class Seeker < ActiveRecord::Base
             :state,
             presence: true
 
+  validates :email, uniqueness: true
+
   geocoded_by       :full_address
   before_save       :geocode
   after_validation  :set_full_address, on: [:create, :update]
