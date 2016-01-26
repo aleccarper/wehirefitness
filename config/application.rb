@@ -21,6 +21,7 @@ module Wehirefitness
     # config.i18n.default_locale = :de
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+    config.autoload_paths << Rails.root.join('lib')
 
     config.action_mailer.delivery_method = :postmark
     config.action_mailer.postmark_settings = { :api_token => "e72dbb2e-dc17-4bf2-ae8e-bdca0dc21a6a" }

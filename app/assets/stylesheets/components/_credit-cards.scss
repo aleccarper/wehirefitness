@@ -130,8 +130,10 @@
         border: 1px solid gray;
         color: white;
         font-size: 27px;
-        padding: $margin / 4 $margin / 2 $margin / 8 $margin / 3;
+        padding: 0 $margin / 2 $margin / 8 $margin / 3;
         width: 70px;
+        line-height: 1em;
+        height: 43px;
       }
     }
   }

@@ -121,6 +121,8 @@ class JobsController < ApplicationController
 		session[:job] = nil
 		flash[:notice] = 'Your job has been posted!'
 
+    SlackModule::API::notify_new_job_posting("https://www.wehirefitness.com#{job_path(@job)}", @job.title)
+
 		redirect_to jobs_thank_you_path
 	end
 
