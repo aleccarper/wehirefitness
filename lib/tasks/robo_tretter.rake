@@ -60,8 +60,8 @@ namespace :whf do
         end
       end
 
+      SlackModule::API::notify_robo_tretter_seed_done(processed_count, skipped_count) if Rails.env == 'production'
       puts "PROCESSED #{processed_count} AND SKIPPED #{skipped_count} JOBS"
-
     end
   end
 end

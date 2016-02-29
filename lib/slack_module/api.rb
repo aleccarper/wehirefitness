@@ -12,6 +12,12 @@ module SlackModule
       self.notify msg
     end
 
+    def notify_robo_tretter_seed_done(processed_count, skipped_count)
+      msg = "*ADDED #{processed_count} JOBS*\n"
+      msg << "*SKIPPED #{skipped_count} JOBS*"
+      self.notify msg
+    end
+
     def self.notify(message, attachments=nil)
       slack = Slack::Notifier.new(
         ENV['SLACK_WEBHOOK_URL'],
