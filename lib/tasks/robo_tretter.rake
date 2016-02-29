@@ -8,16 +8,16 @@ namespace :whf do
       base_url = 'http://www.fitnessjobs.com/employment/'
       categories = [
         { url: 'sales-browse-1170.aspx', category: 3 },
-        { url: 'personal-trainer-browse-1107.aspx', category: 1 },
-        { url: 'fitness-specialist-browse-1027.aspx', category: 1},
-        { url: 'exercise-physiology-browse-1020.aspx', category: 1},
-        { url: 'fitness-manager-listing-47035.aspx', category: 2},
-        { url: 'personal-training-manager-browse-1109.aspx', category: 2},
-        { url: 'fitness-director-browse-1023.aspx', category: 2}
+        { url: 'personal-trainer-browse-1107.aspx', category: 1  },
+        { url: 'fitness-specialist-browse-1027.aspx', category: 1 },
+        { url: 'exercise-physiology-browse-1020.aspx', category: 1 },
+        { url: 'fitness-manager-listing-47035.aspx', category: 2 },
+        { url: 'personal-training-manager-browse-1109.aspx', category: 2} ,
+        { url: 'fitness-director-browse-1023.aspx', category: 2 },
+        { url: 'membership-rep-browse-1081.aspx', category: 5 }
       ]
 
       processed_count = 0
-      skipped_count = 0
 
       categories.each do |cat|
         cat_doc = Nokogiri::HTML(open(base_url + cat[:url]))
@@ -30,11 +30,9 @@ namespace :whf do
 
           unless job_doc.css('#ctl01_PageContent_ListingDisplayIcons_VisitWebSiteLink').first.present?
             puts 'skipping ' + title
-            skipped_count += 1
             next
           end
           puts 'processing ' + title
-          processed_count += 1
 
           company_url = URI.unescape(job_doc.css('#ctl01_PageContent_ListingDisplayIcons_VisitWebSiteLink').first['href'])
           job_hash = {
@@ -54,14 +52,19 @@ namespace :whf do
           }
           job_hash[:origin_uid].slice!(0)
           job = Job.new(job_hash)
-          puts job.errors.full_messages unless job.save
+
+          if job.save
+            processed_count += 1
+          else
+            puts job.errors.full_messages
+          end
 
           #puts job_hash
         end
       end
 
-      SlackModule::API::notify_robo_tretter_seed_done(processed_count, skipped_count) if Rails.env == 'production'
-      puts "PROCESSED #{processed_count} AND SKIPPED #{skipped_count} JOBS"
+      SlackModule::API::notify_robo_tretter_seed_done(processed_count) if Rails.env == 'production'
+      puts "ADDED #{processed_count} JOBS"
     end
   end
 end

@@ -12,9 +12,9 @@ module SlackModule
       self.notify msg
     end
 
-    def self.notify_robo_tretter_seed_done(processed_count, skipped_count)
-      msg = "*ADDED #{processed_count} JOBS*\n"
-      msg << "*SKIPPED #{skipped_count} JOBS*"
+    def self.notify_robo_tretter_seed_done(processed_count)
+      msg = "robo_tretter: I just added *#{processed_count}* new job postings\n"
+      msg << "robo_tretter: _beep_ *boop* _beep_"
       self.notify msg
     end
 
