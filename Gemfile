@@ -28,6 +28,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootsy'
 gem 'devise'
 gem 'geocoder'
+gem 'nokogiri'
 
 gem 'rake'
 gem 'pg'

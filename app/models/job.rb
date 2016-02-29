@@ -1,17 +1,18 @@
 class Job < ActiveRecord::Base
-	validates :title, 
-						:category, 
-						:description, 
-						:how_to_apply, 
-						:company_description, 
-						:company_name, 
-						:company_url, 
-						:company_email, 
-						:zip, 
-						:city, 
-						:state, 
+	validates :title,
+						:category,
+						:description,
+						:how_to_apply,
+						:company_description,
+						:company_name,
+						:company_url,
+						:company_email,
+						:zip,
+						:city,
+						:state,
 						presence: true
 
+	validates :origin_uid, uniqueness: true
 	geocoded_by 			:full_address
 	before_save       :geocode
 	after_validation 	:set_full_address, on: [:create, :update]
@@ -27,5 +28,5 @@ class Job < ActiveRecord::Base
 
   def set_full_address
     self.full_address = get_full_address
-  end	
+  end
 end

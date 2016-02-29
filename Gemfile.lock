@@ -366,6 +366,7 @@ DEPENDENCIES
   letter_opener
   meta-tags
   newrelic_rpm
+  nokogiri
   oily_png
   pg
   postmark-rails

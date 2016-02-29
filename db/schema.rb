@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124175924) do
+ActiveRecord::Schema.define(version: 20160229044637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160124175924) do
     t.string   "stripe_customer_id"
     t.string   "stripe_charge_id"
     t.boolean  "published",           default: false
+    t.string   "origin_uid"
   end
 
   create_table "seekers", force: true do |t|
