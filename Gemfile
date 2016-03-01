@@ -29,6 +29,8 @@ gem 'bootsy'
 gem 'devise'
 gem 'geocoder'
 gem 'nokogiri'
+gem 'twitter'
+gem 'sidekiq'
 
 gem 'rake'
 gem 'pg'

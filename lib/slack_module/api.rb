@@ -13,7 +13,7 @@ module SlackModule
     end
 
     def self.robo_tretter_says(message)
-      msg = "robo_tretter: #{message}"
+      msg = "*robo_tretter:* #{message}"
       self.notify msg
     end
 

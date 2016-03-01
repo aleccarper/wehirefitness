@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   devise_for :admins
+  default_url_options :host => "https://www.wehirefitness.com"
+
   root 'home#index'
 
   # jobs
