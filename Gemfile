@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 
-gem 'puma'
+gem 'unicorn'
 
 # Assets
 gem 'autoprefixer-rails'
