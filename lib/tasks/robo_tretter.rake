@@ -4,6 +4,7 @@ require 'open-uri'
 namespace :whf do
   namespace :robo_tretter do
     task :seed => :environment do
+      SlackModule::API::robo_tretter_says("_beep_ Starting seed process _boop_")
 
       base_url = 'http://www.fitnessjobs.com/employment/'
       categories = [
@@ -14,25 +15,27 @@ namespace :whf do
         { url: 'fitness-manager-listing-47035.aspx', category: 2 },
         { url: 'personal-training-manager-browse-1109.aspx', category: 2} ,
         { url: 'fitness-director-browse-1023.aspx', category: 2 },
-        { url: 'membership-rep-browse-1081.aspx', category: 5 }
+        { url: 'membership-rep-browse-1081.aspx', category: 5 },
+        { url: 'operations-browse-1097.aspx', category: 5 },
+        { url: 'front-desk-staff-browse-1035.aspx', category: 5 }
       ]
 
       processed_count = 0
 
       categories.each do |cat|
         cat_doc = Nokogiri::HTML(open(base_url + cat[:url]))
+        whf_category = Category.find(cat[:category])
         jobs = cat_doc.css('.intTBL').map{ |element| {url: element.css('a').first['href'], company: element.css('td')[1].content} }
+
+        SlackModule::API::robo_tretter_says("Scanning #{base_url}#{cat[:url]} for new #{whf_category.name} jobs")
+
         jobs.each do |job|
           job_doc = Nokogiri::HTML(open(base_url + job[:url]))
           address = job_doc.css('#ctl01_PageContent_CityStatePostal').first.content
           state = /, (..)/.match(address)[1]
           title = job_doc.css('.h1DBL').first.content
 
-          unless job_doc.css('#ctl01_PageContent_ListingDisplayIcons_VisitWebSiteLink').first.present?
-            puts 'skipping ' + title
-            next
-          end
-          puts 'processing ' + title
+          next unless job_doc.css('#ctl01_PageContent_ListingDisplayIcons_VisitWebSiteLink').first.present?
 
           company_url = URI.unescape(job_doc.css('#ctl01_PageContent_ListingDisplayIcons_VisitWebSiteLink').first['href'])
           job_hash = {
@@ -55,16 +58,11 @@ namespace :whf do
 
           if job.save
             processed_count += 1
-          else
-            puts job.errors.full_messages
           end
-
-          #puts job_hash
         end
       end
 
-      SlackModule::API::notify_robo_tretter_seed_done(processed_count) if Rails.env == 'production'
-      puts "ADDED #{processed_count} JOBS"
+      SlackModule::API::robo_tretter_says("_whrrrrrr_ Seed process completed.  I have added *#{processed_count}* new jobs.")
     end
   end
 end

@@ -12,13 +12,16 @@ module SlackModule
       self.notify msg
     end
 
-    def self.notify_robo_tretter_seed_done(processed_count)
-      msg = "robo_tretter: I just added *#{processed_count}* new job postings\n"
-      msg << "robo_tretter: _beep_ *boop* _beep_"
+    def self.robo_tretter_says(message)
+      msg = "robo_tretter: #{message}"
       self.notify msg
     end
 
     def self.notify(message, attachments=nil)
+      unless Rails.env == 'production'
+        puts message
+        return
+      end
       slack = Slack::Notifier.new(
         ENV['SLACK_WEBHOOK_URL'],
         channel: '#general',
