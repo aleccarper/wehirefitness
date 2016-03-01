@@ -1,5 +1,5 @@
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
-timeout Integer(ENV['WEB_TIMEOUT'] || 30)
+timeout 15
 preload_app true
 
 before_fork do |server, worker|
@@ -17,16 +17,6 @@ after_fork do |server, worker|
     puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to send QUIT'
   end
 
-  if defined?(ActiveRecord::Base)
-    config = Rails.application.config.database_configuration[Rails.env]
-    config['reaping_frequency'] = ENV['DB_REAP_FREQ'] || 10 # seconds
-    config['pool']              = ENV['DB_POOL'] || 5
-    ActiveRecord::Base.establish_connection(config)
-  end
-
-  Analytics = Segment::Analytics.new({
-      write_key: ENV['SEGMENT_WRITE_KEY'],
-      on_error: Proc.new { |status, msg| print msg }
-  })
-
+  defined?(ActiveRecord::Base) and
+    ActiveRecord::Base.establish_connection
 end
