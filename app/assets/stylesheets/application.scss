@@ -16,6 +16,6 @@
 @import "imports/mixins";
 @import "common/typography";
 
-@import "components/**/*.scss";
-@import "common/**/*.scss";
-@import "views/**/**/**/*.scss";
+@import "components/**/*";
+@import "common/**/*";
+@import "views/**/*";
