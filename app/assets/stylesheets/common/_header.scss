@@ -25,7 +25,8 @@
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-
+    height: 220px;
+    
     .header-img {
       @include box-shadow();
       background-image: image-url('we-hire-fitness.jpg');
