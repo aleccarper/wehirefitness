@@ -27,8 +27,8 @@ module Robo
         job = Job.find(id)
         next unless job
         category = Category.find(job.category)
-        message = "Apply for this new ##{category.name.downcase.gsub(/\s+/, '')} job at #{job_url(job)}"
-        Worker::Spew.perform_in(index.hours, message)
+        message = "Check out this new ##{category.name.downcase.gsub(/\s+/, '')} job at #{job_url(job)} in ##{job.city.downcase.gsub(/\s+/, '')} ##{job.state.downcase.gsub(/\s+/, '')}"
+        Worker::Spew.perform_in((index * 2).hours, message)
         workers_queued += 1
       end
 
