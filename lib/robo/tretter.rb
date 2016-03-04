@@ -27,7 +27,8 @@ module Robo
         job = Job.find(id)
         next unless job
         category = Category.find(job.category)
-        message = "Check out this new ##{category.name.downcase.gsub(/\s+/, '')} job at #{job_url(job)} in ##{job.city.downcase.gsub(/\s+/, '')} ##{job.state.downcase.gsub(/\s+/, '')}"
+        bitly_url = Bitly.client.shorten(job_url(job))
+        message = "#{job.company_name} is #hiring for a ##{category.name.downcase.gsub(/\s+/, '')} #job - #{job.title} in ##{job.city.downcase.gsub(/\s+/, '')} #{job.state.upcase.gsub(/\s+/, '')} #{bitly_url.short_url}"
         Worker::Spew.perform_in((index * 2).hours, message)
         workers_queued += 1
       end

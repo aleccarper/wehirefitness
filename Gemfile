@@ -31,6 +31,7 @@ gem 'geocoder'
 gem 'nokogiri'
 gem 'twitter'
 gem 'sidekiq'
+gem 'bitly'
 
 gem 'rake'
 gem 'pg'
