@@ -20,9 +20,11 @@ require 'sidekiq/testing'
 require 'support/database_cleaner'
 require 'support/controller_macros'
 
+
 Capybara.default_max_wait_time = 30
 
 include Warden::Test::Helpers
+
 Warden.test_mode!
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

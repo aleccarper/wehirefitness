@@ -8,4 +8,10 @@ class JobMailer < ActionMailer::Base
 
 		mail(to: @job.company_email, subject: "Your #{@job.title} job has been posted!")
 	end
+
+  def new_job(job)
+		@job = job
+
+		mail(to: @job.company_email, subject: "Your #{@job.title} job has been created!")
+	end
 end

@@ -17,9 +17,8 @@ describe Robo::Tretter do
 
       it 'should build the correct text' do
         subject
-        job = Worker::Spew.jobs.first
-        text = job['args'][0]
-        expect(text).to_not be_nil
+        text = Worker::Spew.jobs.first['args'][0]
+        expect(text).to match(/https\:\/\/www.wehirefitness.com\/jobs\/#{job.id}/)
       end
 
     end
