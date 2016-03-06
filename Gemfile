@@ -46,6 +46,7 @@ group :development, :test do
   gem 'letter_opener'
 	gem "better_errors"
 	gem "byebug"
+  gem 'dotenv-rails'
 end
 
 group :staging, :production do
@@ -67,4 +68,5 @@ group :test do
   gem 'stripe-ruby-mock', '~> 2.0.5', require: 'stripe_mock'
   gem 'timecop'
   gem 'rspec-stripe'
+  gem 'faker'
 end

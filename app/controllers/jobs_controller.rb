@@ -91,17 +91,19 @@ class JobsController < ApplicationController
 	end
 
 	def complete_purchase
-		if current_admin
-			redirect_to jobs_thank_you_path
+		@job = Job.new(session[:job])
 
+		if current_admin
 			@job = Job.new(session[:job])
 			@job.stripe_charge_id = 'admin_job_posting'
 			@job.published = true
-			@job.save
-
-			session[:job] = nil
-			flash[:notice] = 'Your job has been posted!'
-			return
+			if @job.save
+				session[:job] = nil
+				flash[:notice] = 'Admin - job has been publisehd'
+				return redirect_to jobs_thank_you_path
+			end
+			flash[:error] = @job.errors.full_messages
+			return redirect_to jobs_purchase_path
 		end
 
 		begin
@@ -109,21 +111,20 @@ class JobsController < ApplicationController
 		    :email => session[:job][:company_email],
 		    :card  => params[:stripeToken]
 		  )
+			@job.stripe_customer_id = customer.id
 		rescue Stripe::CardError => e
 		  flash[:error] = e.message
-		  return redirect_to jobs_complete_purchase_path
+		  return redirect_to jobs_purchase_path
 		end
 
-		@job = Job.new(session[:job])
-		@job.stripe_customer_id = customer.id
-		@job.save
-
-		session[:job] = nil
-		flash[:notice] = 'Your job has been posted!'
-
-    SlackModule::API::notify_new_job_posting("https://www.wehirefitness.com#{job_path(@job)}", @job.title)
-
-		redirect_to jobs_thank_you_path
+		if @job.save
+			session[:job] = nil
+			flash[:notice] = 'Your job has been created!'
+	    SlackModule::API::notify_new_job_posting(job_url(@job), @job.title)
+			return redirect_to jobs_thank_you_path
+		end
+		flash[:error] = @job.errors.full_messages
+		return redirect_to jobs_purchase_path
 	end
 
 	def thank_you

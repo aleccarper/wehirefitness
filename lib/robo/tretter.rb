@@ -19,8 +19,6 @@ module Robo
       SlackModule::API::robo_tretter_says(message)
     end
 
-    private
-
     def self.queue_spew(job_ids)
       workers_queued = 0
       job_ids.sample(12).each_with_index do |id, index|

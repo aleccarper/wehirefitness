@@ -14,10 +14,13 @@ require 'timecop'
 require 'capybara'
 require 'factory_girl_rails'
 require 'byebug'
+require 'devise'
+require 'sidekiq/testing'
 
 require 'support/database_cleaner'
+require 'support/controller_macros'
 
-Capybara.default_wait_time = 30
+Capybara.default_max_wait_time = 30
 
 include Warden::Test::Helpers
 Warden.test_mode!
@@ -59,6 +62,8 @@ RSpec.configure do |config|
 
   config.include RSpec::Rails::RequestExampleGroup, type: :feature
 
+  config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
 
   config.before(:each) do
     Rails.application.load_seed

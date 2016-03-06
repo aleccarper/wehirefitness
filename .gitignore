@@ -16,4 +16,5 @@
 /tmp
 
 
-/.envrc
+/.env
+/.byebug_history
