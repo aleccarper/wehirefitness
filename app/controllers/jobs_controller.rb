@@ -85,7 +85,7 @@ class JobsController < ApplicationController
 		@job.published = true
 		@job.save
 
-		JobMailer.new_job_receipt(@job, charge).deliver
+		JobMailer.new_job_receipt(@job, charge).deliver_now
 
 		redirect_to action: "show", id: @job.id
 	end
@@ -121,6 +121,8 @@ class JobsController < ApplicationController
 			session[:job] = nil
 			flash[:notice] = 'Your job has been created!'
 	    SlackModule::API::notify_new_job_posting(job_url(@job), @job.title)
+			JobMailer.new_job(@job).deliver_now
+			JobMailer.new_job_admin_notification(@job).deliver_now
 			return redirect_to jobs_thank_you_path
 		end
 		flash[:error] = @job.errors.full_messages

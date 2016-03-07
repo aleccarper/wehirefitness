@@ -54,6 +54,10 @@ describe JobsController do
           subject
           expect(flash[:notice]).to eq('Admin - job has been publisehd')
         end
+
+        it 'should not send an email' do
+          expect { subject }.to change { ActionMailer::Base.deliveries.count }.by(0)
+        end
       end
     end
 
@@ -87,6 +91,10 @@ describe JobsController do
               "State can't be blank"]
            )
         end
+
+        it 'should not send an email' do
+          expect { subject }.to change { ActionMailer::Base.deliveries.count }.by(0)
+        end
       end
 
       context "using complete information" do
@@ -107,6 +115,10 @@ describe JobsController do
         it 'should display the correct flash message' do
           subject
           expect(flash[:notice]).to eq('Your job has been created!')
+        end
+
+        it 'should send an email' do
+          expect { subject }.to change { ActionMailer::Base.deliveries.count }.by(2)
         end
       end
     end
