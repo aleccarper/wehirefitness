@@ -2,8 +2,6 @@ $(document).ready(function(){
 
   Stripe.setPublishableKey("<%= Rails.application.secrets['stripe']['publish'] %>");
 
-
-
   var stripeResponseHandler = function(status, response) {
     var $form = $('#payment-form');
     if (response.error) {
