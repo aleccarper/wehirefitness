@@ -4,11 +4,9 @@ module Robo
       def self.process
         base_url = 'http://www.sportscareerfinder.com/members/jobs/category/'
         categories = [
-          { url: 'marketing-consulting-agencies', category: 5 },
-          { url: 'general-sports-jobs', category: 1 },
           { url: 'strength-conditioning', category: 1},
-          { url: 'sports-management', category: 2 },
-          { url: 'heath-fitness', category: 5}
+          { url: 'heath-fitness', category: 1 }
+
         ]
 
         new_job_ids = []
@@ -18,11 +16,11 @@ module Robo
           jobs = cat_doc.css('.content-center .wpjb-col-title').map{ |element| element.css('a').first['href'] }
 
           jobs.each do |job_url|
-            next if new_job_ids.count > 20
+            next if new_job_ids.count > 8
             job_doc = Nokogiri::HTML(open(job_url))
             origin_uid = job_doc.css('body').first['class'].to_s[/postid\-.*/]
             address = job_doc.css('.wpjb-icon-location a').first.content
-            next unless address.split(/\,/).count == 2
+            next unless address.split(/\,/).count == 2 && address.split(/\,/)[1].length == 2
             company_url = job_doc.css('.wpjb-top-header-title a').first['href']
             company_name = job_doc.css('.wpjb-top-header-title').first.content
             company_description = "Check out <a href='#{company_url}' target='_blank'>the website</a> to learn more!"
@@ -44,7 +42,7 @@ module Robo
               description: description,
               company_description: company_description,
               company_email: "NA",
-              company_name: company_name,
+              company_name: company_name.strip,
               company_url: company_url,
               city: city,
               state: state,

@@ -5,8 +5,8 @@ module Robo
   class Tretter
     def self.seed
       seeders = [
+        Robo::Seeder::SportsCareerFinder,
         Robo::Seeder::FitnessJobs,
-        Robo::Seeder::SportsCareerFinder
       ]
 
       notify("_beep_ Starting seed process _boop_")
@@ -21,7 +21,7 @@ module Robo
 
     def self.queue_spew(job_ids)
       workers_queued = 0
-      job_ids.shuffle.each_with_index do |id, index|
+      job_ids.each_with_index do |id, index|
         next if workers_queued > 12
         job = Job.find(id)
         next unless job
