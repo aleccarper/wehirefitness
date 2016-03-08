@@ -5,7 +5,7 @@ module Robo
   class Tretter
     def self.seed
       seeders = [
-        #Robo::Seeder::SportsCareerFinder,
+        Robo::Seeder::SportsCareerFinder,
         Robo::Seeder::FitnessJobs
       ]
 

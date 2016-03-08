@@ -16,7 +16,7 @@ module Robo
           jobs = cat_doc.css('.content-center .wpjb-col-title').map{ |element| element.css('a').first['href'] }
 
           jobs.each do |job_url|
-            next if new_job_ids.count > 8
+            next if new_job_ids.count > 3
             job_doc = Nokogiri::HTML(open(job_url))
             origin_uid = job_doc.css('body').first['class'].to_s[/postid\-.*/]
             address = job_doc.css('.wpjb-icon-location a').first.content
