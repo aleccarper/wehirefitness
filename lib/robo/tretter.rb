@@ -5,8 +5,8 @@ module Robo
   class Tretter
     def self.seed
       seeders = [
-        Robo::Seeder::SportsCareerFinder,
-        Robo::Seeder::FitnessJobs,
+        #Robo::Seeder::SportsCareerFinder,
+        Robo::Seeder::FitnessJobs
       ]
 
       notify("_beep_ Starting seed process _boop_")

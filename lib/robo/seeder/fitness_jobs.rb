@@ -22,8 +22,9 @@ module Robo
           whf_category = Category.find(cat[:category])
           jobs = cat_doc.css('.intTBL').map{ |element| {url: element.css('a').first['href'], company: element.css('td')[1].content} }
 
-          jobs.each do |job|
-            job_doc = Nokogiri::HTML(open(base_url + job[:url]))
+          jobs.each do |j|
+            job_doc = Nokogiri::HTML(open(base_url + j[:url]).read)
+            job_doc.encoding = 'utf-8'
             address = job_doc.css('#ctl01_PageContent_CityStatePostal').first.content
             state = /, (..)/.match(address)[1]
             title = job_doc.css('.h1DBL').first.content
@@ -34,10 +35,10 @@ module Robo
             job_hash = {
               origin_uid: job_doc.css('form').first['action'].to_s[/\=.*/],
               title: title,
-              description: job_doc.css('#ctl01_PageContent_TabC_Tab_Description_JobDescription').first.to_s.gsub(/<\/?span[^>]*>/,""),
+              description: job_doc.at_css('#ctl01_PageContent_TabC_Tab_Description_JobDescription').to_s.gsub(/<\/?span[^>]*>/,""),
               company_description: "Check out <a href='#{company_url}' target='_blank'>our website</a> to learn more!",
               company_email: "NA",
-              company_name: job[:company],
+              company_name: j[:company],
               company_url: company_url,
               city: address[/^[^\,]*/],
               state: state,
