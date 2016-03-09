@@ -13,7 +13,9 @@ module Robo
           { url: 'fitness-director-browse-1023.aspx', category: 2 },
           { url: 'membership-rep-browse-1081.aspx', category: 5 },
           { url: 'operations-browse-1097.aspx', category: 5 },
-          { url: 'front-desk-staff-browse-1035.aspx', category: 5 }
+          { url: 'front-desk-staff-browse-1035.aspx', category: 5 },
+          { url: 'sales-advisor-browse-1171.aspx', category: 3 },
+          { url: 'assistant-general-manager-browse-942.aspx', category: 2 }
         ]
 
         new_job_ids = []
