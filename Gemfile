@@ -47,6 +47,7 @@ group :development, :test do
 	gem "better_errors"
 	gem "byebug"
   gem 'dotenv-rails'
+  gem "awesome_print"
 end
 
 group :staging, :production do

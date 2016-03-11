@@ -57,6 +57,7 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.3.3.1)
       execjs
+    awesome_print (1.6.1)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -421,6 +422,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-session_store!
   autoprefixer-rails
+  awesome_print
   better_errors
   bitly
   bootstrap-sass (~> 3.3.6)

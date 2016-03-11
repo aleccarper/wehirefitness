@@ -6,7 +6,8 @@ module Robo
     def self.seed
       seeders = [
         Robo::Seeder::SportsCareerFinder,
-        Robo::Seeder::FitnessJobs
+        Robo::Seeder::FitnessJobs,
+        Robo::Seeder::UFCGym
       ]
 
       notify("_beep_ Starting seed process _boop_")
@@ -22,7 +23,6 @@ module Robo
     def self.queue_spew(job_ids)
       workers_queued = 0
       job_ids.each_with_index do |id, index|
-        next if workers_queued > 12
         job = Job.find(id)
         next unless job
         category = Category.find(job.category)
@@ -33,7 +33,7 @@ module Robo
         end
         message = "#{job.company_name} is #hiring for a ##{category.name.downcase.gsub(/\s+/, '')} #job - #{job.title} in ##{job.city.downcase.gsub(/\s+/, '')} #{job.state.upcase.gsub(/\s+/, '')} #{url}"
         next if message.length > 139
-        Worker::Spew.perform_in((workers_queued * 2).hours, message)
+        Worker::Spew.perform_in((workers_queued * 1.5).hours, message)
         workers_queued += 1
       end
 
