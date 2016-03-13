@@ -33,7 +33,7 @@ module Robo
         end
         message = "#{job.company_name} is #hiring for a ##{category.name.downcase.gsub(/\s+/, '')} #job - #{job.title} in ##{job.city.downcase.gsub(/\s+/, '')} #{job.state.upcase.gsub(/\s+/, '')} #{url}"
         next if message.length > 139
-        Worker::Spew.perform_in((workers_queued * 1.5).hours, message)
+        Worker::Spew.perform_in((workers_queued * 2.5).hours, message)
         workers_queued += 1
       end
 
