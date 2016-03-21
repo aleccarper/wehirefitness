@@ -42,7 +42,6 @@
         <div class="card-expiration-year">
           <div class="card-expiration-year-label">YEAR</div>
           <%= select_tag :exp_year, options_for_select({
-              '15' => '2015',
               '16' => '2016',
               '17' => '2017',
               '18' => '2018',
@@ -51,7 +50,8 @@
               '21' => '2021',
               '22' => '2022',
               '23' => '2023',
-              '24' => '2024'
+              '24' => '2024',
+              '25' => '2025'
             },
             @cc_exp_year).html_safe,
             data: { stripe: 'exp-year' } %>
