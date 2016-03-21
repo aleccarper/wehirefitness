@@ -97,7 +97,7 @@ describe JobsController do
         end
       end
 
-      context "using complete information" do
+      context "using complete information", :vcr => {:cassette_name => 'controllers/job/create_job_using_complete_information', :record => :none } do
         subject {
           session[:job] = FactoryGirl.attributes_for(:job)
           post :complete_purchase

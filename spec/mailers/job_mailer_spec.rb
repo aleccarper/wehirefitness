@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe JobMailer do
   describe 'new_job_receipt' do
@@ -30,6 +30,26 @@ RSpec.describe JobMailer do
       expect(mail.body.encoded).to match(/\$10\.00/)
       expect(mail.body.encoded).to match(/Visa/)
       expect(mail.body.encoded).to match(/charge_id/)
+    end
+
+    context 'without a charge' do
+      let(:mail) { JobMailer.new_job_receipt(job, nil) }
+
+      it 'renders the subject' do
+        expect(mail.subject).to eql('Your Job Title job has been posted!')
+      end
+
+      it 'renders the receiver email' do
+        expect(mail.to).to eql([job.company_email])
+      end
+
+      it 'renders the sender email' do
+        expect(mail.from).to eql(['support@wehirefitness.com'])
+      end
+
+      it 'should not show the receipt' do
+        expect(mail.body.encoded).to_not match(/Receipt\:/)
+      end
     end
   end
 

@@ -3,6 +3,36 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
+require 'vcr_helper'
+
+Geocoder.configure(:lookup => :test)
+Geocoder::Lookup::Test.add_stub(
+  "Greenwood Village Colorado 80111", [
+    {
+      'latitude'     => 40.7143528,
+      'longitude'    => -74.0059731,
+      'address'      => 'Greenwood Village, CO, USA',
+      'state'        => 'Colorado',
+      'state_code'   => 'CO',
+      'country'      => 'United States',
+      'country_code' => 'US'
+    }
+  ]
+)
+
+Geocoder::Lookup::Test.add_stub(
+  "Denver Colorado US", [
+    {
+      'latitude'     => 40.7143528,
+      'longitude'    => -74.0059731,
+      'address'      => 'Greenwood Village, CO, USA',
+      'state'        => 'Colorado',
+      'state_code'   => 'CO',
+      'country'      => 'United States',
+      'country_code' => 'US'
+    }
+  ]
+)
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

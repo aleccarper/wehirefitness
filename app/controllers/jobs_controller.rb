@@ -68,24 +68,12 @@ class JobsController < ApplicationController
 		end
 
 		@job = Job.find_by_id(params[:id])
+		response = @job.charge_and_publish
 
-		begin
-			charge = Stripe::Charge.create(
-		    :customer    => @job.stripe_customer_id,
-		    :amount      => 2500,
-		    :description => 'wehirefitness.com Job Posting',
-		    :currency    => 'usd'
-		  )
-		rescue Stripe::CardError => e
-		  flash[:error] = e.message
+		if !response[:success]
+			flash[:error] = response[:message]
 		  return redirect_to action: "show", id: @job.id
 		end
-
-		@job.stripe_charge_id = charge.id
-		@job.published = true
-		@job.save
-
-		JobMailer.new_job_receipt(@job, charge).deliver_now
 
 		redirect_to action: "show", id: @job.id
 	end
@@ -102,6 +90,11 @@ class JobsController < ApplicationController
 				flash[:notice] = 'Admin - job has been publisehd'
 				return redirect_to jobs_thank_you_path
 			end
+			flash[:error] = @job.errors.full_messages
+			return redirect_to jobs_purchase_path
+		end
+
+		if !@job.valid?
 			flash[:error] = @job.errors.full_messages
 			return redirect_to jobs_purchase_path
 		end
