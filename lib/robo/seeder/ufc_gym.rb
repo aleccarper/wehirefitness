@@ -38,6 +38,9 @@ module Robo
 
           p1 = their_title.index("(")
           p2 = their_title.index(")")
+
+          next unless p1 && p2
+
           title = their_title
           title[p1-1..p2] = ""
           description = job_doc.css('.jobDesc').first
