@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   # seekers
   post '/seeker/create', to: 'seeker#create'
 
+  # coupons
+  post '/coupons/lookup', to: 'coupons#lookup'
+
   #misc
   get '/terms', to: 'legal#terms_and_conditions'
   get '/privacy', to: 'legal#privacy_policy'
