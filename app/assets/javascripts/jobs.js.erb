@@ -30,7 +30,18 @@ $(document).ready(function(){
 
   $('.js-apply-coupon').on('click', function(e) {
     e.preventDefault();
-    
+
+    $couponField = $('#coupon_code')
+
+    $.get({
+      url: '/coupons/lookup',
+      data: {
+        code: $couponField.val()
+      },
+      success: function(data){
+        console.log(data)
+      }
+    });
 
     return false;
   })

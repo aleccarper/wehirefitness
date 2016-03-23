@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   post '/seeker/create', to: 'seeker#create'
 
   # coupons
-  post '/coupons/lookup', to: 'coupons#lookup'
+  get '/coupons/lookup/:code', to: 'coupons#lookup'
 
   #misc
   get '/terms', to: 'legal#terms_and_conditions'

@@ -5,7 +5,7 @@ describe CouponsController do
   describe 'POST #lookup' do
     context 'of an existing coupon' do
       let(:coupon) { FactoryGirl.create(:coupon, percent_off: 75) }
-      subject { post :lookup, {code: coupon.code} }
+      subject { get :lookup, {code: coupon.code} }
 
       it 'returns the correct values' do
         subject
@@ -21,7 +21,7 @@ describe CouponsController do
     end
 
     context 'of a missing coupon' do
-      subject { post :lookup, {code: 'ohwow'} }
+      subject { get :lookup, {code: 'ohwow'} }
 
       it 'should return not found' do
         subject
