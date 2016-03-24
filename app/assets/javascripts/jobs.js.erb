@@ -32,18 +32,57 @@ $(document).ready(function(){
     e.preventDefault();
 
     $couponField = $('#coupon_code')
+    if($couponField.val() == '') {
+      setCouponMessage('Please enter a coupon code', true);
+      clearCoupon();
+      return false;
+    }
 
     $.get({
-      url: '/coupons/lookup',
-      data: {
-        code: $couponField.val()
-      },
+      url: '/coupons/lookup/'+$couponField.val(),
       success: function(data){
-        console.log(data)
+        if(data.found) {
+          console.log(data);
+          setCouponMessage('Coupon applied!', false);
+          setCoupon(data);
+        } else {
+          setCouponMessage('Coupon code not found', true);
+          clearCoupon();
+        }
       }
     });
 
     return false;
-  })
+  });
+
+  function setCoupon(coupon) {
+    $discountName = $('.js-discount-name');
+    $discountAmount = $('.js-discount-amount');
+    $total = $('.js-total-amount');
+    amount = 25;
+    discount = Math.round(amount * coupon.as_float, 2);
+    $discountName.text(': ' + coupon.code);
+    $discountAmount.text(discount.toFixed(2));
+    $total.text((amount - discount).toFixed(2));
+  }
+
+  function clearCoupon() {
+    $discountName = $('.js-discount-name');
+    $discountAmount = $('.js-discount-amount');
+    $total = $('.js-total-amount');
+    $discountName.text('');
+    $discountAmount.text('0.00');
+    $total.text('25.00');
+  }
+
+  function setCouponMessage(message, error) {
+    $message = $('#coupon-message');
+    $message.text(message);
+    if(error) {
+      $message.addClass('color-red');
+    } else {
+      $message.removeClass('color-red');
+    }
+  }
 
 });

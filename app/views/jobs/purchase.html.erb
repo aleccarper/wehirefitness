@@ -19,7 +19,8 @@
 
   <br>
 
-  <%= label_tag :coupon_code, 'Apply a coupon' %><br>
+  <%= label_tag :coupon_code, 'Apply a coupon' %><br><br>
+  <span id='coupon-message' class='color-red'></span><br>
   <%= text_field_tag :coupon_code, '', placeholder: 'Coupon code' %>
   <button type="submit" class='button js-apply-coupon'>Apply coupon</button>
 
