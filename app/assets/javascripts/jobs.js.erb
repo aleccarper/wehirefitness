@@ -59,7 +59,7 @@ $(document).ready(function(){
     $discountAmount = $('.js-discount-amount');
     $total = $('.js-total-amount');
     amount = 25;
-    discount = Math.round(amount * coupon.as_float, 2);
+    discount = amount * coupon.as_float;
     $discountName.text(': ' + coupon.code);
     $discountAmount.text(discount.toFixed(2));
     $total.text((amount - discount).toFixed(2));
