@@ -98,9 +98,10 @@ describe JobsController do
       end
 
       context "using complete information", :vcr => {:cassette_name => 'controllers/job/create_job_using_complete_information', :record => :none } do
+        let(:coupon) { FactoryGirl.create(:coupon) }
         subject {
           session[:job] = FactoryGirl.attributes_for(:job)
-          post :complete_purchase
+          post :complete_purchase, { coupon_code: coupon.code }
         }
 
         it 'should create the job posting as published' do
@@ -119,6 +120,11 @@ describe JobsController do
 
         it 'should send an email' do
           expect { subject }.to change { ActionMailer::Base.deliveries.count }.by(2)
+        end
+
+        it 'should have a coupon' do
+          subject
+          expect(Job.first.coupon).to_be be_nil
         end
       end
     end

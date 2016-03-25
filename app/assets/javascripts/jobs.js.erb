@@ -31,7 +31,7 @@ $(document).ready(function(){
   $('.js-apply-coupon').on('click', function(e) {
     e.preventDefault();
 
-    $couponField = $('#coupon_code')
+    $couponField = $('#coupon_field')
     if($couponField.val() == '') {
       setCouponMessage('Please enter a coupon code', true);
       clearCoupon();
@@ -42,7 +42,6 @@ $(document).ready(function(){
       url: '/coupons/lookup/'+$couponField.val(),
       success: function(data){
         if(data.found) {
-          console.log(data);
           setCouponMessage('Coupon applied!', false);
           setCoupon(data);
         } else {
@@ -64,6 +63,12 @@ $(document).ready(function(){
     $discountName.text(': ' + coupon.code);
     $discountAmount.text(discount.toFixed(2));
     $total.text((amount - discount).toFixed(2));
+    $couponField = $('#payment-form').find('#coupon_code');
+    if($couponField.length) {
+      $couponField.val(coupon.code);
+    } else {
+      $('#payment-form').append('<input type="hidden" id="coupon_code" name="coupon_code" value="'+coupon.code+'" />');
+    }
   }
 
   function clearCoupon() {
@@ -73,6 +78,7 @@ $(document).ready(function(){
     $discountName.text('');
     $discountAmount.text('0.00');
     $total.text('25.00');
+    $('#payment-form').find('#coupon_code').remove();
   }
 
   function setCouponMessage(message, error) {

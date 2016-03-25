@@ -29,6 +29,7 @@ class Job < ActiveRecord::Base
 		amount = 2500
 		if self.coupon && self.coupon.can_use?
 			amount = amount - (amount * self.coupon.as_float).round
+			self.coupon.use
 		end
 
 		if amount > 0

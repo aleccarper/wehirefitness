@@ -110,6 +110,11 @@ class JobsController < ApplicationController
 		  return redirect_to jobs_purchase_path
 		end
 
+		if coupon_code = params[:coupon_code]
+			coupon = Coupon.find_by_code(coupon_code)
+			@job.coupon = coupon if coupon.present? && coupon.can_use?
+		end
+
 		if @job.save
 			session[:job] = nil
 			flash[:notice] = 'Your job has been created!'
