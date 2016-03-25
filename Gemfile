@@ -70,4 +70,6 @@ group :test do
   gem 'timecop'
   gem 'rspec-stripe'
   gem 'faker'
+  gem 'vcr', '~> 2.9.3' # Record/Playback HTTP interactions
+  gem 'webmock', '~> 1.21.0' # Stubbing and setting expectations on HTTP requests  
 end

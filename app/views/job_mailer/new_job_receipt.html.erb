@@ -5,10 +5,13 @@
 <p><%= link_to 'Check out your posting!', @job, only_path: false %></p>
 <p>We Hire Team</p>
 <br>
-<p>Receipt:</p>
-<div style='padding-left: 8px;'>
-  <div>Date: <%= Time.at(@charge[:created]).strftime("%d %b %Y%l:%M %p %Z") %></div>
-  <div>Amount: <%= sprintf('$%0.2f', @charge[:amount].to_f / 100.0).gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1,") %> (USD)</div>
-  <div>Charged to: <%= @charge[:source][:brand] %> (**** **** **** <%= @charge[:source][:last4] %>)</div>
-  <div>Charge ID: <%= @charge[:id] %></div>
-</div>
+
+<% if @charge %>
+  <p>Receipt:</p>
+  <div style='padding-left: 8px;'>
+    <div>Date: <%= Time.at(@charge[:created]).strftime("%d %b %Y%l:%M %p %Z") %></div>
+    <div>Amount: <%= sprintf('$%0.2f', @charge[:amount].to_f / 100.0).gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1,") %> (USD)</div>
+    <div>Charged to: <%= @charge[:source][:brand] %> (**** **** **** <%= @charge[:source][:last4] %>)</div>
+    <div>Charge ID: <%= @charge[:id] %></div>
+  </div>
+<% end %>

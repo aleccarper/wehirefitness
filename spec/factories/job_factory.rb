@@ -8,8 +8,10 @@ FactoryGirl.define do
     company_description Faker::Lorem.sentence
     company_name Faker::Company.name
     company_url Faker::Internet.url
-    zip Faker::Address.zip
-    city Faker::Address.city
-    state Faker::Address.state
+    zip '80111'
+    city 'Greenwood Village'
+    state 'Colorado'
+    published false
+    stripe_customer_id 'cus_6wNSe1hvyfHkLd'
   end
 end

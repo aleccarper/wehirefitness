@@ -13,19 +13,46 @@
   <h1>Almost there...</h1>
   <p>
     Your ad is $25 and it will run for 30 days starting today.
-    Your ad will be reviewed by our staff before being listed on the main page. This only takes a few minutes. We reserve the right to deny or remove ads at our discretion (we will refund your money if we don’t run your ad). Any questions? Contact us by emailing support@wehirefitness.com 
+
+    Your ad will be reviewed by our staff before being listed on the main page. This only takes a few minutes. We reserve the right to deny or remove ads at our discretion (we will refund your money if we don’t run your ad). Any questions? Contact us by emailing support@wehirefitness.com
   </p>
 
+  <br>
+
+  <%= label_tag :coupon_code, 'Apply a coupon' %><br><br>
+  <span id='coupon-message' class='color-red'></span><br>
+  <%= text_field_tag :coupon_field, '', placeholder: 'Coupon code' %>
+  <button type="submit" class='button js-apply-coupon'>Apply coupon</button>
+
+  <br>
+  <table class='table table-condensed'>
+    <thead>
+      <tr><th colspan="2"><h5>Checkout</h5></th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Wehirefitness.com Job Posting</td>
+        <td>$25.00</td>
+      </tr>
+      <tr>
+        <td>Discount<span class='js-discount-name'></span></td>
+        <td>$<span class='js-discount-amount'>0.00</span></td>
+      </tr>
+      <tr>
+        <td><strong>Total</strong></td>
+        <td><strong>$<span class='js-total-amount'>25.00</span></strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
   <div class='payment-errors'></div>
-  
+
   <%= render '/billing/card' %>
 
   <br />
 
   <script type="text/javascript">CreditCard.init();</script>
 
-  <button type="submit" class='button forward'>Submit Payment</button>
+  <button type="submit" class='button forward'>Checkout!</button>
 <% end %>
-
-
-

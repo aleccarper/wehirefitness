@@ -1,0 +1,124 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/charges
+    body:
+      encoding: US-ASCII
+      string: amount=625&currency=usd&customer=cus_6wNSe1hvyfHkLd&description=wehirefitness.com+Job+Posting
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Stripe/v1 RubyBindings/1.36.0
+      Authorization:
+      - Bearer sk_test_8pa4m7Rd5fw7vvQ9MtOeXUca
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"1.36.0","lang":"ruby","lang_version":"2.1.6 p336 (2015-04-13)","platform":"x86_64-darwin14.0","engine":"ruby","publisher":"stripe","uname":"Darwin
+        0x5378 15.2.0 Darwin Kernel Version 15.2.0: Fri Nov 13 19:56:56 PST 2015;
+        root:xnu-3248.20.55~2/RELEASE_X86_64 x86_64","hostname":"0x5378"}'
+      Content-Length:
+      - '93'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 21 Mar 2016 04:45:11 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1524'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_87a4JXDdP6lAcx
+      Stripe-Version:
+      - '2015-08-07'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "ch_17rKuhIALHQ35LmrZcteBq5O",
+          "object": "charge",
+          "amount": 625,
+          "amount_refunded": 0,
+          "application_fee": null,
+          "balance_transaction": "txn_17rKuhIALHQ35LmrsFL7i1nN",
+          "captured": true,
+          "created": 1458535511,
+          "currency": "usd",
+          "customer": "cus_6wNSe1hvyfHkLd",
+          "description": "wehirefitness.com Job Posting",
+          "destination": null,
+          "dispute": null,
+          "failure_code": null,
+          "failure_message": null,
+          "fraud_details": {},
+          "invoice": null,
+          "livemode": false,
+          "metadata": {},
+          "order": null,
+          "paid": true,
+          "receipt_email": null,
+          "receipt_number": null,
+          "refunded": false,
+          "refunds": {
+            "object": "list",
+            "data": [],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/charges/ch_17rKuhIALHQ35LmrZcteBq5O/refunds"
+          },
+          "shipping": null,
+          "source": {
+            "id": "card_16iUhnIALHQ35Lmr2igRQBv9",
+            "object": "card",
+            "address_city": null,
+            "address_country": null,
+            "address_line1": null,
+            "address_line1_check": null,
+            "address_line2": null,
+            "address_state": null,
+            "address_zip": null,
+            "address_zip_check": null,
+            "brand": "Visa",
+            "country": "US",
+            "customer": "cus_6wNSe1hvyfHkLd",
+            "cvc_check": null,
+            "dynamic_last4": null,
+            "exp_month": 4,
+            "exp_year": 2019,
+            "fingerprint": "xmzddh7bBcc1aIGl",
+            "funding": "credit",
+            "last4": "4242",
+            "metadata": {},
+            "name": null,
+            "tokenization_method": null
+          },
+          "source_transfer": null,
+          "statement_descriptor": null,
+          "status": "succeeded"
+        }
+    http_version: 
+  recorded_at: Mon, 21 Mar 2016 04:45:11 GMT
+recorded_with: VCR 2.9.3
