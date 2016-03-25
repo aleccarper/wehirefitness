@@ -124,7 +124,7 @@ describe JobsController do
 
         it 'should have a coupon' do
           subject
-          expect(Job.first.coupon).to_be be_nil
+          expect(Job.first.coupon).to_not be_nil
         end
       end
     end

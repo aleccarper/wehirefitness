@@ -4,7 +4,7 @@ describe CouponsController do
 
   describe 'POST #lookup' do
     context 'of an existing coupon' do
-      let(:coupon) { FactoryGirl.create(:coupon, percent_off: 75) }
+      let(:coupon) { FactoryGirl.create(:coupon, percent_off: 75, code: 'asdf') }
       subject { get :lookup, {code: coupon.code} }
 
       it 'returns the correct values' do
@@ -13,6 +13,7 @@ describe CouponsController do
           {
             "found"=>true,
             "can_use"=>true,
+            "code"=>'asdf',
             "percent_off"=>75,
             "as_float"=>0.75
           }
