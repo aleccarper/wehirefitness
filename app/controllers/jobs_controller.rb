@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
 	include ActionView::Helpers::AssetUrlHelper
-	
+
 	def show
 		if current_admin
 			@job = Job.find_by_id(params[:id])
@@ -11,7 +11,7 @@ class JobsController < ApplicationController
     if @job
       set_meta_tags :title => @job.title + " at " + @job.company_name
 			description = @job.description.split[0...40].join(' ')
-			icon_url = image_url("twitter/misc.png")
+			icon_url = asset_url("assets/twitter/misc.png")
 
 			set_meta_tags	description: description,
 										twitter: {
