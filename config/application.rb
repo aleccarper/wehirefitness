@@ -27,5 +27,7 @@ module Wehirefitness
     config.action_mailer.postmark_settings = { :api_token => "e72dbb2e-dc17-4bf2-ae8e-bdca0dc21a6a" }
 
     config.active_job.queue_adapter = :sidekiq
+
+    config.action_controller.asset_host = "wehirefitness.com"
   end
 end

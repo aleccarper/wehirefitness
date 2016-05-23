@@ -12,7 +12,7 @@ class Job < ActiveRecord::Base
 						:state,
 						presence: true
 
-	validates :origin_uid, uniqueness: true
+	validates_uniqueness_of :origin_uid, allow_nil: true, allow_blank: true
 	geocoded_by 			:full_address
 	before_save       :geocode
 	after_validation 	:set_full_address, on: [:create, :update]

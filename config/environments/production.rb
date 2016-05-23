@@ -85,4 +85,6 @@ Wehirefitness::Application.configure do
   config.action_mailer.default_url_options = {
     host: 'wehirefitness.com'
   }
+
+  config.action_controller.asset_host = "wehirefitness.com"
 end
