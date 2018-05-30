@@ -1,6 +1,6 @@
 == We hire fitness
 
-**A weworkremotely.com clone but targeted at the fitness industry.**
+A weworkremotely.com clone but targeted at the fitness industry.
 
 Includes: 
 
