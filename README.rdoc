@@ -1,28 +1,13 @@
-== README
+== We hire fitness
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**A weworkremotely.com clone but targeted at the fitness industry.**
 
-Things you may want to cover:
+Includes: 
 
-* Ruby version
+* Posting and viewing jobs
+* Single Stripe charges for posting jobs
+* Job posting validation via an admin area
+* Automated scrappes to populate job postings from other websites
+* Automated Twitter posts when new jobs are added with intellegent hash-tagging
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Originally used to power https://weworkremotely.com/
