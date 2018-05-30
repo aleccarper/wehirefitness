@@ -7,7 +7,7 @@ Includes:
 * Posting and viewing jobs
 * Single Stripe charges for posting jobs
 * Job posting validation via an admin area
-* Automated scrappes to populate job postings from other websites
+* Automated scrappers to populate job postings from other websites
 * Automated Twitter posts when new jobs are added with intellegent hash-tagging
 
 Originally used to power https://weworkremotely.com/
